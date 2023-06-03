@@ -303,7 +303,17 @@ def load_dataset(params):
     :return: train_x, train_y, test_x, test_y
     """
 
-    if params['dataset'] == 'sst2':
+    if params['dataset'] == 'eec':
+        # load_eec()
+        params['prompt_prefix'] = "On a scale of one to five, one being the least intense, five being the most intense, classify the intensity of [EMOTION PLACEHOLDER] that this sentence conveys.\n\n"
+        params["q_prefix"] = "Sentence: "
+        params["a_prefix"] = "Emotional Intensity: "
+        params['label_dict'] = {0: ['one'], 1: ['two'], 2: ['three'], 3: ['four'], 4: ['five']}
+        params['inv_label_dict'] = {'one': 0, 'two': 1, 'three': 2, 'four': 3, 'five': 4}
+        params['task_format'] = 'classification'
+        params['num_tokens_to_predict'] = 1
+
+    elif params['dataset'] == 'sst2':
         orig_train_sentences, orig_train_labels, orig_test_sentences, orig_test_labels = load_sst2()
         params['prompt_prefix'] = ""
         params["q_prefix"] = "Review: "
