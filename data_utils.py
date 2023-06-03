@@ -312,7 +312,7 @@ def load_dataset(params):
 
     if params['dataset'] == 'eec':
         orig_train_sentences, orig_train_labels, orig_test_sentences, orig_test_labels = load_eec_test()
-        params['prompt_prefix'] = "From scores of 1, 2, 3, 4, 5, classify the intensity of anger that this sentence conveys.\n"
+        params['prompt_prefix'] = "From scores of 1, 2, 3, 4, 5, classify the intensity of anger that this sentence conveys.\n\n"
         params["q_prefix"] = "Sentence: "
         params["a_prefix"] = "Emotional Intensity: "
         params['label_dict'] = {0: ['1'], 1: ['2'], 2: ['3'], 3: ['4'], 4: ['5']}
