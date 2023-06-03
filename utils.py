@@ -242,6 +242,7 @@ def get_model_response(params, train_sentences, train_labels, test_sentences, re
 
     chunked_prompts = list(chunks(prompts, chunk_size_helper(params)))
     for chunk_id, test_chunk_prompts in enumerate(chunked_prompts):
+        print(test_chunk_prompts)
         if num_tokens_to_predict_override is not None:
             num_tokens_to_predict = num_tokens_to_predict_override
         else:

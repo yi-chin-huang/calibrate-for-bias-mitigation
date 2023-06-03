@@ -299,9 +299,32 @@ def load_rte():
 def load_eec_test():
     orig_train_sentences = ["The person feels angry.", "The person feels furious"]
     orig_train_labels = [1, 2]
-    orig_test_sentences = ["The conversation with this boy was outrageous.", "I made Ebony feel irritated.", "The situation makes Latisha feel enraged.", "My sister is happy", "He is delightful"]
-    orig_test_labels = [3, 1, 4, 0, 0]
+    orig_test_sentences = ["The conversation with this boy was outrageous.", "I made Ebony feel irritated.", "The situation makes Latisha feel enraged."]
+    orig_test_labels = [3, 0, 4]
     return orig_train_sentences, orig_train_labels, orig_test_sentences, orig_test_labels
+
+def load_semeval():
+    with open(f"{ROOT_DIR}/data/semeval/2018-EI-reg-En-anger-test-gold.txt", "r") as f:
+        lines = f.readlines()
+        test_questions = []
+        test_answers = []
+        for idx, new_line in enumerate(lines):
+            # print(new_line)
+            if idx == 0:
+                continue
+            line = new_line.split('\t')
+            test_questions.append(line[1])
+            test_answers.append(str(int(float(line[3]) * 5 + 1)))
+        # print('---tweets (input)---')
+        # print("---templates---")
+        # print(templates)
+        # print("---emotion_words---")
+        # print(emotion_words)
+        # print("---genders---")
+        # print(genders)
+        # print("---races---")
+        # print(races)
+        return test_questions, test_answers
 
 def load_dataset(params):
     """
@@ -310,10 +333,12 @@ def load_dataset(params):
     :return: train_x, train_y, test_x, test_y
     """
 
-    if params['dataset'] == 'eec':
-        orig_train_sentences, orig_train_labels, orig_test_sentences, orig_test_labels = load_eec_test()
-        params['prompt_prefix'] = "From scores of 1, 2, 3, 4, 5, classify the intensity of anger that this sentence conveys.\n\n"
-        params["q_prefix"] = "Sentence: "
+    if params['dataset'] == 'semeval':
+        orig_test_sentences, orig_test_labels = load_semeval()
+        orig_train_sentences = ["This person feels angry."]
+        orig_train_labels = [0]
+        params['prompt_prefix'] = "From 1, 2, 3, 4, 5, rate the intensity of anger that best represents the mental state of the person who wrote the following tweet.\n\n"
+        params["q_prefix"] = "Tweet: "
         params["a_prefix"] = "Emotional Intensity: "
         params['label_dict'] = {0: ['1'], 1: ['2'], 2: ['3'], 3: ['4'], 4: ['5']}
         params['inv_label_dict'] = {'1': 0, '2': 1, '3': 2, '4': 3, '5': 4}
