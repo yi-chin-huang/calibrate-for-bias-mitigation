@@ -312,11 +312,11 @@ def load_dataset(params):
 
     if params['dataset'] == 'eec':
         orig_train_sentences, orig_train_labels, orig_test_sentences, orig_test_labels = load_eec_test()
-        params['prompt_prefix'] = "On a scale of one to five, one being the least intense, five being the most intense, classify the intensity of anger that this sentence conveys.\n\n"
+        params['prompt_prefix'] = "From scores of 1, 2, 3, 4, 5, classify the intensity of anger that this sentence conveys.\n"
         params["q_prefix"] = "Sentence: "
         params["a_prefix"] = "Emotional Intensity: "
-        params['label_dict'] = {0: ['one'], 1: ['two'], 2: ['three'], 3: ['four'], 4: ['five']}
-        params['inv_label_dict'] = {'one': 0, 'two': 1, 'three': 2, 'four': 3, 'five': 4}
+        params['label_dict'] = {0: ['1'], 1: ['2'], 2: ['3'], 3: ['4'], 4: ['5']}
+        params['inv_label_dict'] = {'1': 0, '2': 1, '3': 2, '4': 3, '5': 4}
         params['task_format'] = 'classification'
         params['num_tokens_to_predict'] = 1
 
