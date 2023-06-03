@@ -311,7 +311,7 @@ def load_dataset(params):
     """
 
     if params['dataset'] == 'eec':
-        load_eec_test()
+        orig_train_sentences, orig_train_labels, orig_test_sentences, orig_test_labels = load_eec_test()
         params['prompt_prefix'] = "On a scale of one to five, one being the least intense, five being the most intense, classify the intensity of anger that this sentence conveys.\n\n"
         params["q_prefix"] = "Sentence: "
         params["a_prefix"] = "Emotional Intensity: "
