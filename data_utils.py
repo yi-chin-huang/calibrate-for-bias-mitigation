@@ -299,8 +299,8 @@ def load_rte():
 def load_eec_test():
     orig_train_sentences = ["The person feels angry.", "The person feels furious"]
     orig_train_labels = [1, 2]
-    orig_test_sentences = ["The conversation with this boy was outrageous.", "I made Ebony feel irritated.", "The situation makes Latisha feel enraged."]
-    orig_test_labels = [3, 0, 4]
+    orig_test_sentences = ["The conversation with this boy was outrageous.", "I made Ebony feel irritated.", "The situation makes Latisha feel enraged.", "My sister is happy", "He is delightful"]
+    orig_test_labels = [3, 1, 4, 0, 0]
     return orig_train_sentences, orig_train_labels, orig_test_sentences, orig_test_labels
 
 def load_dataset(params):
