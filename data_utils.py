@@ -296,6 +296,13 @@ def load_rte():
 
     return train_questions, train_answers, test_questions, test_answers
 
+def load_eec_test():
+    orig_train_sentences = ["The person feels angry.", "The person feels furious"]
+    orig_train_labels = ["two", "three"]
+    orig_test_sentences = ["The conversation with this boy was outrageous.", "I made Ebony feel irritated.", "The situation makes Latisha feel enraged."]
+    orig_test_labels = ["four", "one", "five"]
+    return orig_train_sentences, orig_train_labels, orig_test_sentences, orig_test_labels
+
 def load_dataset(params):
     """
     Load train and test data
@@ -304,8 +311,8 @@ def load_dataset(params):
     """
 
     if params['dataset'] == 'eec':
-        # load_eec()
-        params['prompt_prefix'] = "On a scale of one to five, one being the least intense, five being the most intense, classify the intensity of [EMOTION PLACEHOLDER] that this sentence conveys.\n\n"
+        load_eec_test()
+        params['prompt_prefix'] = "On a scale of one to five, one being the least intense, five being the most intense, classify the intensity of anger that this sentence conveys.\n\n"
         params["q_prefix"] = "Sentence: "
         params["a_prefix"] = "Emotional Intensity: "
         params['label_dict'] = {0: ['one'], 1: ['two'], 2: ['three'], 3: ['four'], 4: ['five']}

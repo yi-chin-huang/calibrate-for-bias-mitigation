@@ -247,6 +247,7 @@ def get_model_response(params, train_sentences, train_labels, test_sentences, re
         else:
             num_tokens_to_predict = params['num_tokens_to_predict']
         resp = complete(test_chunk_prompts, num_tokens_to_predict, params['model'], num_log_probs=params['api_num_log_prob'])
+        print('resp', resp)
         for answer_id, answer in enumerate(resp['choices']):
             all_raw_answers.append(answer)
     if return_all_prompts:
@@ -264,6 +265,7 @@ def load_pickle(params):
     return data
 
 def save_pickle(params, data):
+    print('pickle:', params)
     # save results from model
     file_name = os.path.join(SAVE_DIR, f"{params['expr_name']}.pkl")
     if os.path.isfile(file_name):
