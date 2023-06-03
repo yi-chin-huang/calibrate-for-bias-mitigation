@@ -7,6 +7,7 @@ import torch
 import pickle
 import openai
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
+import pandas as pd
 tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
 
 ROOT_DIR = os.path.dirname(os.path.realpath(__file__))
@@ -187,15 +188,14 @@ def complete(prompt, l, model, temp=0, num_log_probs=None, echo=False, n=None):
         setup_gpt3()
         return complete_gpt3(prompt, l=l, model_name=model, num_log_probs=num_log_probs, echo=echo, n=n)
 
-def construct_prompt(params, train_sentences, train_labels, test_sentence):
-    print('train_sentences----->', train_sentences)
+def construct_prompt(params, train_sentences, train_labels, test_sentence, test_emotion):
     """construct a single prompt to be fed into the model"""
     # special case when the user defines a custom prompt function. 
     if ('prompt_func' in params.keys()) and (params['prompt_func'] is not None):
         return params['prompt_func'](params, train_sentences, train_labels, test_sentence)
 
     # take the prompt template and fill in the training and test example
-    prompt = params["prompt_prefix"]
+    prompt = params["prompt_prefix"] % test_emotion
     q_prefix = params["q_prefix"]
     a_prefix = params["a_prefix"]
     for s, l in zip(train_sentences, train_labels):
@@ -218,7 +218,7 @@ def construct_prompt(params, train_sentences, train_labels, test_sentence):
     prompt += a_prefix[:-1] # GPT models do not want a trailing space, so we cut off -1
     return prompt
 
-def get_model_response(params, train_sentences, train_labels, test_sentences, return_all_prompts=False,
+def get_model_response(params, train_sentences, train_labels, test_sentences, test_emotions, return_all_prompts=False,
                        num_tokens_to_predict_override=None, override_prompt=None):
     """
     Obtain model's responses on test sentences, given the training examples
@@ -236,11 +236,12 @@ def get_model_response(params, train_sentences, train_labels, test_sentences, re
     # can optionally ignore the normal prompt and feed in a custom prompt (used for contextual calibration)
     if override_prompt is None:
         prompts = []
-        for test_sentence in test_sentences:
-            prompts.append(construct_prompt(params, train_sentences, train_labels, test_sentence))
+        for idx, test_sentence in enumerate(test_sentences):
+            prompts.append(construct_prompt(params, train_sentences, train_labels, test_sentence, test_emotions[idx]))
     else:
         prompts = override_prompt
 
+    # print('---->prompts', prompts)
     chunked_prompts = list(chunks(prompts, chunk_size_helper(params)))
     for chunk_id, test_chunk_prompts in enumerate(chunked_prompts):
         if num_tokens_to_predict_override is not None:
@@ -248,11 +249,8 @@ def get_model_response(params, train_sentences, train_labels, test_sentences, re
         else:
             num_tokens_to_predict = params['num_tokens_to_predict']
         resp = complete(test_chunk_prompts, num_tokens_to_predict, params['model'], num_log_probs=params['api_num_log_prob'])
-        # print('resp', resp)
         for answer_id, answer in enumerate(resp['choices']):
             all_raw_answers.append(answer)
-            # print('test_chunk_prompts---->', test_chunk_prompts)
-            # print('answer---->', answer)
 
     if return_all_prompts:
         return all_raw_answers, prompts
@@ -313,3 +311,10 @@ def load_results(params_list):
             node = node[k]
         node[params['seed']] = saved_result['accuracies']
     print_results(result_tree)
+
+def output_csv(sentences, templates, emotions, genders, races, predicted_intensities, model):
+    # dictionary of lists  
+    dict = {'sentences': sentences, 'templates': templates, 'emotions': emotions, 'genders': genders, 'races': races, 'predicted_intensities': predicted_intensities}  
+    df = pd.DataFrame(dict) 
+    # saving the dataframe 
+    df.to_csv(f'predicted_results_eec_{model}.csv') 

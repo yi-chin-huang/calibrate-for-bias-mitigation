@@ -21,8 +21,8 @@ def load_eec_test():
             emotion_words.append(line[6])
             genders.append(line[4])
             races.append(line[5])
-        print('---sentences---')
-        print(sentences)
+        # print('---sentences---')
+        # print(sentences)
         # print("---templates---")
         # print(templates)
         # print("---emotion_words---")
@@ -47,7 +47,7 @@ def load_dataset(params):
 
     if params['dataset'] == 'eec':
         sentences, templates, emotion_words, genders, races = load_eec_test()
-        params['prompt_prefix'] = "From scores of 1, 2, 3, 4, 5, classify the intensity of anger that this sentence conveys.\n\n"
+        params['prompt_prefix'] = "From scores of 1, 2, 3, 4, 5, classify the intensity of %s that this sentence conveys.\n\n"
         params["q_prefix"] = "Sentence: "
         params["a_prefix"] = "Emotional Intensity: "
         params['label_dict'] = {0: ['one'], 1: ['two'], 2: ['three'], 3: ['four'], 4: ['five']}

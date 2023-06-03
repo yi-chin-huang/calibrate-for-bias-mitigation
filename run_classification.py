@@ -45,12 +45,12 @@ def save_results(params_list, freeze_test_set=True):
         print("\nExperiment name:", params['expr_name'])
 
         ### load data
-        sentences, templates, emotion_words, genders, races = load_dataset(params)
-        anger_sentences, anger_templates, anger_genders, anger_races = get_data_by_emotion_word(sentences, templates, emotion_words, genders, races, emotion_word='anger')
-        anger_female_sentences, anger_female_templates, anger_female_races = get_data_by_gender(anger_sentences, anger_templates, anger_genders, anger_races, gender='female')
-        anger_male_sentences, anger_male_templates, anger_male_races = get_data_by_gender(anger_sentences, anger_templates, anger_genders, anger_races, gender='male')
-        anger_european_sentences, anger_european_templates, anger_european_genders = get_data_by_race(anger_sentences, anger_templates, anger_genders, anger_races, race='European')
-        anger_aa_sentences, anger_aa_templates, anger_aa_genders = get_data_by_race(anger_sentences, anger_templates, anger_genders, anger_races, race='African-American')
+        sentences, templates, emotions, genders, races = load_dataset(params)
+        # anger_sentences, anger_templates, anger_genders, anger_races = get_data_by_emotion_word(sentences, templates, emotion_words, genders, races, emotion_word='anger')
+        # anger_female_sentences, anger_female_templates, anger_female_races = get_data_by_gender(anger_sentences, anger_templates, anger_genders, anger_races, gender='female')
+        # anger_male_sentences, anger_male_templates, anger_male_races = get_data_by_gender(anger_sentences, anger_templates, anger_genders, anger_races, gender='male')
+        # anger_european_sentences, anger_european_templates, anger_european_genders = get_data_by_race(anger_sentences, anger_templates, anger_genders, anger_races, race='European')
+        # anger_aa_sentences, anger_aa_templates, anger_aa_genders = get_data_by_race(anger_sentences, anger_templates, anger_genders, anger_races, race='African-American')
 
         params_check(params)
 
@@ -75,14 +75,20 @@ def save_results(params_list, freeze_test_set=True):
         ### Evaluate the performance and save all results
         # obtaining model's response on test examples
         # print(f"getting raw resp for {len(test_sentences)} test sentences")
-        raw_resp_test_female_anger = get_model_response(params, train_sentences=['The conversation with Latisha was displeasing.'], train_labels=[2], test_sentences=anger_female_sentences)
-        raw_resp_test_male_anger = get_model_response(params, train_sentences=['The conversation with Latisha was displeasing.'], train_labels=[2], test_sentences=anger_male_sentences)
+        raw_resp_test = get_model_response(params, train_sentences=['The conversation with Latisha was displeasing.'], train_labels=[2], test_sentences=sentences, test_emotions=emotions)
+        # raw_resp_test_male_anger = get_model_response(params, train_sentences=['The conversation with Latisha was displeasing.'], train_labels=[2], test_sentences=anger_male_sentences)
 
-        female_anger_avg_score = get_avg_score(raw_resp_test_female_anger, params)
-        male_anger_avg_score = get_avg_score(raw_resp_test_male_anger, params)
+        # female_anger_avg_score = get_avg_score(raw_resp_test_female_anger, params)
+        # male_anger_avg_score = get_avg_score(raw_resp_test_male_anger, params)
 
-        print(female_anger_avg_score)
-        print(male_anger_avg_score)
+        # print(female_anger_avg_score)
+        # print(male_anger_avg_score)
+
+        predicted_intensities = []
+        for answer in raw_resp_test:
+            predicted_intensities.append(params['inv_label_dict'][answer.text])
+
+        output_csv(sentences, templates, emotions, genders, races, predicted_intensities, model=params['model'])
 
         # get prob for each label
         # all_label_probs = get_label_probs(params, raw_resp_test, train_sentences=['The conversation with Latisha was displeasing.'], train_labels=[2], test_sentences=anger_sentences[:4])
@@ -97,12 +103,12 @@ def save_results(params_list, freeze_test_set=True):
         # print(f"p_cf      : {p_cf}")
 
         # add to result_tree
-        keys = [params['dataset'], params['model'], params['num_shots']]
-        node = result_tree # root
-        for k in keys:
-            if not (k in node.keys()):
-                node[k] = dict()
-            node = node[k]
+        # keys = [params['dataset'], params['model'], params['num_shots']]
+        # node = result_tree # root
+        # for k in keys:
+        #     if not (k in node.keys()):
+        #         node[k] = dict()
+        #     node = node[k]
         # node[params['seed']] = accuracies
 
         # save to file
@@ -198,94 +204,94 @@ def eval_accuracy(all_label_probs, test_labels, mode=None, p_cf=None):
             correctness_list.append(0)
     return np.mean(correctness_list)
 
-def get_label_probs(params, raw_resp, train_sentences, train_labels, test_sentences):
-    """Obtain model's label probability for each of the test examples. The returned prob is NOT normalized"""
-    num_classes = len(params['label_dict'])
-    approx = params['approx']
-    assert len(raw_resp) == len(test_sentences)
+# def get_label_probs(params, raw_resp, train_sentences, train_labels, test_sentences):
+#     """Obtain model's label probability for each of the test examples. The returned prob is NOT normalized"""
+#     num_classes = len(params['label_dict'])
+#     approx = params['approx']
+#     assert len(raw_resp) == len(test_sentences)
 
-    # Fill in the labels that is in the top k prob
-    all_label_probs = []
-    all_missing_positions = []
-    for i, ans in enumerate(raw_resp):
-        top_logprobs = ans['logprobs']['top_logprobs'][0]  # [0] since we only ask for complete one more token
-        label_probs = [0] * len(params['label_dict'].keys())
-        for j, label_list in params['label_dict'].items():
-            all_found = True
-            for label in label_list:  # each possible label correspond to the same class
-                label = " " + label  # notice prompt does not have space after 'A:'
-                if label in top_logprobs:
-                    label_probs[j] += np.exp(top_logprobs[label])
-                else:
-                    all_found = False
-            if not all_found:
-                position = (i, j) # (which test example, which label)
-                all_missing_positions.append(position)
-        all_label_probs.append(label_probs)
-    all_label_probs = np.array(all_label_probs) # prob not normalized
+#     # Fill in the labels that is in the top k prob
+#     all_label_probs = []
+#     all_missing_positions = []
+#     for i, ans in enumerate(raw_resp):
+#         top_logprobs = ans['logprobs']['top_logprobs'][0]  # [0] since we only ask for complete one more token
+#         label_probs = [0] * len(params['label_dict'].keys())
+#         for j, label_list in params['label_dict'].items():
+#             all_found = True
+#             for label in label_list:  # each possible label correspond to the same class
+#                 label = " " + label  # notice prompt does not have space after 'A:'
+#                 if label in top_logprobs:
+#                     label_probs[j] += np.exp(top_logprobs[label])
+#                 else:
+#                     all_found = False
+#             if not all_found:
+#                 position = (i, j) # (which test example, which label)
+#                 all_missing_positions.append(position)
+#         all_label_probs.append(label_probs)
+#     all_label_probs = np.array(all_label_probs) # prob not normalized
 
-    # Fill in the label probs that are NOT in top k probs, by asking the model to rate perplexity
-    # This helps a lot in zero shot as most labels wil not be in Top 100 tokens returned by LM
-    if (not approx) and (len(all_missing_positions) > 0):
-        print(f"Missing probs: {len(all_missing_positions)}/{len(raw_resp) * num_classes}")
-        all_additional_prompts = []
-        num_prompts_each = []
-        for position in all_missing_positions:
-            which_sentence, which_label = position
-            test_sentence = test_sentences[which_sentence]
-            label_list = params['label_dict'][which_label]
-            for label in label_list:
-                prompt = construct_prompt(params, train_sentences, train_labels, test_sentence)
-                prompt += " " + label
-                all_additional_prompts.append(prompt)
-            num_prompts_each.append(len(label_list))
+#     # Fill in the label probs that are NOT in top k probs, by asking the model to rate perplexity
+#     # This helps a lot in zero shot as most labels wil not be in Top 100 tokens returned by LM
+#     if (not approx) and (len(all_missing_positions) > 0):
+#         print(f"Missing probs: {len(all_missing_positions)}/{len(raw_resp) * num_classes}")
+#         all_additional_prompts = []
+#         num_prompts_each = []
+#         for position in all_missing_positions:
+#             which_sentence, which_label = position
+#             test_sentence = test_sentences[which_sentence]
+#             label_list = params['label_dict'][which_label]
+#             for label in label_list:
+#                 prompt = construct_prompt(params, train_sentences, train_labels, test_sentence)
+#                 prompt += " " + label
+#                 all_additional_prompts.append(prompt)
+#             num_prompts_each.append(len(label_list))
 
-        # chunk the prompts and feed into model
-        chunked_prompts = list(chunks(all_additional_prompts, chunk_size_helper(params)))
-        all_probs = []
-        for chunk_id, chunk in enumerate(chunked_prompts):
-            resp = complete(chunk, 0, params['model'], echo=True, num_log_probs=1)
-            for ans in resp['choices']:
-                prob = np.exp(ans['logprobs']['token_logprobs'][-1])
-                all_probs.append(prob)
+#         # chunk the prompts and feed into model
+#         chunked_prompts = list(chunks(all_additional_prompts, chunk_size_helper(params)))
+#         all_probs = []
+#         for chunk_id, chunk in enumerate(chunked_prompts):
+#             resp = complete(chunk, 0, params['model'], echo=True, num_log_probs=1)
+#             for ans in resp['choices']:
+#                 prob = np.exp(ans['logprobs']['token_logprobs'][-1])
+#                 all_probs.append(prob)
 
-        assert sum(num_prompts_each) == len(all_probs)
-        assert len(num_prompts_each) == len(all_missing_positions)
+#         assert sum(num_prompts_each) == len(all_probs)
+#         assert len(num_prompts_each) == len(all_missing_positions)
 
-        # fill in corresponding entries in all_label_probs
-        for index, num in enumerate(num_prompts_each):
-            probs = []
-            while num > 0:
-                probs.append(all_probs.pop(0))
-                num -= 1
-            prob = np.sum(probs)
-            i, j = all_missing_positions[index]
-            all_label_probs[i][j] = prob
+#         # fill in corresponding entries in all_label_probs
+#         for index, num in enumerate(num_prompts_each):
+#             probs = []
+#             while num > 0:
+#                 probs.append(all_probs.pop(0))
+#                 num -= 1
+#             prob = np.sum(probs)
+#             i, j = all_missing_positions[index]
+#             all_label_probs[i][j] = prob
 
-        assert len(all_probs) == 0, "all should be popped"
-        assert (all_label_probs > 0).all(), "all should be populated with non-zero value"
+#         assert len(all_probs) == 0, "all should be popped"
+#         assert (all_label_probs > 0).all(), "all should be populated with non-zero value"
 
-    return all_label_probs # NOT NORMALIZED
+#     return all_label_probs # NOT NORMALIZED
 
-def get_p_content_free(params, train_sentences, train_labels, content_free_inputs=('N/A',)):
-    """Query model with content free input, return its prediction probability for each label"""
-    label_dict = params['label_dict']
+# def get_p_content_free(params, train_sentences, train_labels, content_free_inputs=('N/A',)):
+#     """Query model with content free input, return its prediction probability for each label"""
+#     label_dict = params['label_dict']
 
-    all_p_y = []
-    for content_free_input in content_free_inputs:
-        prompt = construct_prompt(params, train_sentences, train_labels, content_free_input)
+#     all_p_y = []
+#     for content_free_input in content_free_inputs:
+#         prompt = construct_prompt(params, train_sentences, train_labels, content_free_input)
 
-        p_y = [0] * len(label_dict)
-        for i, answers in label_dict.items():
-            prob = 0
-            for a in answers:
-                prob += np.exp(complete(prompt + " " + a, 0, params['model'], echo=True, num_log_probs=1)['choices'][0]['logprobs']['token_logprobs'][-1])
-            p_y[i] = prob
-        all_p_y.append(p_y)
+#         p_y = [0] * len(label_dict)
+#         for i, answers in label_dict.items():
+#             prob = 0
+#             for a in answers:
+#                 prob += np.exp(complete(prompt + " " + a, 0, params['model'], echo=True, num_log_probs=1)['choices'][0]['logprobs']['token_logprobs'][-1])
+#             p_y[i] = prob
+#         all_p_y.append(p_y)
 
-    p_y = np.mean(np.array(all_p_y), axis=0)
-    p_y = p_y / np.sum(p_y) # normalize
-    return p_y
+#     p_y = np.mean(np.array(all_p_y), axis=0)
+#     p_y = p_y / np.sum(p_y) # normalize
+#     return p_y
 
 
 def params_check(params):
