@@ -1,5 +1,5 @@
 import argparse
-from data_utils import load_dataset
+from data_utils import load_dataset, load_eec_test
 from utils import *
 
 def main(models, datasets, all_shots, num_seeds, subsample_test_set, api_num_log_prob, approx, use_saved_results, bs):
@@ -45,41 +45,56 @@ def save_results(params_list, freeze_test_set=True):
         print("\nExperiment name:", params['expr_name'])
 
         ### load data
-        all_train_sentences, all_train_labels, all_test_sentences, all_test_labels = load_dataset(params)
+        sentences, templates, emotion_words, genders, races = load_dataset(params)
+        anger_sentences, anger_templates, anger_genders, anger_races = get_data_by_emotion_word(sentences, templates, emotion_words, genders, races, emotion_word='anger')
+        anger_female_sentences, anger_female_templates, anger_female_races = get_data_by_gender(anger_sentences, anger_templates, anger_genders, anger_races, gender='female')
+        anger_male_sentences, anger_male_templates, anger_male_races = get_data_by_gender(anger_sentences, anger_templates, anger_genders, anger_races, gender='male')
+        anger_european_sentences, anger_european_templates, anger_european_genders = get_data_by_race(anger_sentences, anger_templates, anger_genders, anger_races, race='European')
+        anger_aa_sentences, anger_aa_templates, anger_aa_genders = get_data_by_race(anger_sentences, anger_templates, anger_genders, anger_races, race='African-American')
+
         params_check(params)
 
-        ### sample test set
-        if params['subsample_test_set'] is None:
-            test_sentences, test_labels = all_test_sentences, all_test_labels
-            print(f"selecting full test set ({len(all_test_labels)} examples)")
-        else:
-            if freeze_test_set:
-                np.random.seed(0) # always use seed 0 result if freeze
-            else:
-                np.random.seed(params['seed'])
-            test_sentences, test_labels = random_sampling(all_test_sentences, all_test_labels, params['subsample_test_set'])
-            print(f"selecting {len(test_labels)} subsample of test set")
 
-        ### sample few-shot training examples
-        np.random.seed(params['seed'])
-        train_sentences, train_labels = random_sampling(all_train_sentences, all_train_labels, params['num_shots'])
+
+        ### sample test set
+        # if params['subsample_test_set'] is None:
+        #     test_sentences, test_labels = all_test_sentences, all_test_labels
+        #     print(f"selecting full test set ({len(all_test_labels)} examples)")
+        # else:
+        #     if freeze_test_set:
+        #         np.random.seed(0) # always use seed 0 result if freeze
+        #     else:
+        #         np.random.seed(params['seed'])
+        #     test_sentences, test_labels = random_sampling(all_test_sentences, all_test_labels, params['subsample_test_set'])
+        #     print(f"selecting {len(test_labels)} subsample of test set")
+
+        # ### sample few-shot training examples
+        # np.random.seed(params['seed'])
+        # train_sentences, train_labels = random_sampling(all_train_sentences, all_train_labels, params['num_shots'])
 
         ### Evaluate the performance and save all results
         # obtaining model's response on test examples
-        print(f"getting raw resp for {len(test_sentences)} test sentences")
-        raw_resp_test = get_model_response(params, train_sentences, train_labels, test_sentences)
+        # print(f"getting raw resp for {len(test_sentences)} test sentences")
+        raw_resp_test_female_anger = get_model_response(params, train_sentences=['The conversation with Latisha was displeasing.'], train_labels=[2], test_sentences=anger_female_sentences)
+        raw_resp_test_male_anger = get_model_response(params, train_sentences=['The conversation with Latisha was displeasing.'], train_labels=[2], test_sentences=anger_male_sentences)
+
+        female_anger_avg_score = get_avg_score(raw_resp_test_female_anger, params)
+        male_anger_avg_score = get_avg_score(raw_resp_test_male_anger, params)
+
+        print(female_anger_avg_score)
+        print(male_anger_avg_score)
 
         # get prob for each label
-        all_label_probs = get_label_probs(params, raw_resp_test, train_sentences, train_labels, test_sentences)
+        # all_label_probs = get_label_probs(params, raw_resp_test, train_sentences=['The conversation with Latisha was displeasing.'], train_labels=[2], test_sentences=anger_sentences[:4])
 
         # calculate P_cf
-        content_free_inputs = ["N/A", "", "[MASK]"]
-        p_cf = get_p_content_free(params, train_sentences, train_labels, content_free_inputs=content_free_inputs)
-        acc_original = eval_accuracy(all_label_probs, test_labels)
-        acc_calibrated = eval_accuracy(all_label_probs, test_labels, mode="diagonal_W", p_cf=p_cf)
-        accuracies = [acc_original, acc_calibrated]
-        print(f"Accuracies: {accuracies}")
-        print(f"p_cf      : {p_cf}")
+        # content_free_inputs = ["N/A", "", "[MASK]"]
+        # p_cf = get_p_content_free(params, train_sentences, train_labels, content_free_inputs=content_free_inputs)
+        # acc_original = eval_accuracy(all_label_probs, test_labels)
+        # acc_calibrated = eval_accuracy(all_label_probs, test_labels, mode="diagonal_W", p_cf=p_cf)
+        # accuracies = [acc_original, acc_calibrated]
+        # print(f"Accuracies: {accuracies}")
+        # print(f"p_cf      : {p_cf}")
 
         # add to result_tree
         keys = [params['dataset'], params['model'], params['num_shots']]
@@ -88,25 +103,68 @@ def save_results(params_list, freeze_test_set=True):
             if not (k in node.keys()):
                 node[k] = dict()
             node = node[k]
-        node[params['seed']] = accuracies
+        # node[params['seed']] = accuracies
 
         # save to file
-        result_to_save = dict()
-        params_to_save = deepcopy(params)
-        result_to_save['params'] = params_to_save
-        result_to_save['train_sentences'] = train_sentences
-        result_to_save['train_labels'] = train_labels
-        result_to_save['test_sentences'] = test_sentences
-        result_to_save['test_labels'] = test_labels
-        result_to_save['raw_resp_test'] = raw_resp_test
-        result_to_save['all_label_probs'] = all_label_probs
-        result_to_save['p_cf'] = p_cf
-        result_to_save['accuracies'] = accuracies
-        if 'prompt_func' in result_to_save['params'].keys():
-            params_to_save['prompt_func'] = None
-        save_pickle(params, result_to_save)
+        # result_to_save = dict()
+        # params_to_save = deepcopy(params)
+        # result_to_save['params'] = params_to_save
+        # result_to_save['sentences'] = sentences
+        # result_to_save['train_sentences'] = train_sentences
+        # result_to_save['train_labels'] = train_labels
+        # result_to_save['test_sentences'] = test_sentences
+        # result_to_save['test_labels'] = test_labels
+        # result_to_save['raw_resp_test'] = raw_resp_test
+        # result_to_save['all_label_probs'] = all_label_probs
+        # result_to_save['p_cf'] = p_cf
+        # result_to_save['accuracies'] = accuracies
+        # if 'prompt_func' in result_to_save['params'].keys():
+        #     params_to_save['prompt_func'] = None
+        # save_pickle(params, result_to_save)
 
-    print_results(result_tree)
+    # print_results(result_tree)
+
+def get_data_by_emotion_word(sentences, templates, emotion_words, genders, races, emotion_word):
+    new_sentences = []
+    new_templates = []
+    new_genders = []
+    new_races = []
+    for idx, word in enumerate(emotion_words):
+        if word == emotion_word:
+            new_sentences.append(sentences[idx])
+            new_templates.append(templates[idx])
+            new_genders.append(genders[idx])
+            new_races.append(races[idx])
+    return new_sentences, new_templates, new_genders, new_races
+
+def get_data_by_gender(sentences, templates, genders, races, gender):
+    new_sentences = []
+    new_templates = []
+    new_races = []
+    for idx, word in enumerate(genders):
+        if word == gender:
+            new_sentences.append(sentences[idx])
+            new_templates.append(templates[idx])
+            new_races.append(races[idx])
+    return new_sentences, new_templates, new_races
+
+def get_data_by_race(sentences, templates, genders, races, race):
+    new_sentences = []
+    new_templates = []
+    new_genders = []
+    for idx, word in enumerate(races):
+        if word == race:
+            new_sentences.append(sentences[idx])
+            new_templates.append(templates[idx])
+            new_genders.append(genders[idx])
+    return new_sentences, new_templates, new_genders
+
+def get_avg_score(raw_resp_test_female_anger, params):
+    score = 0
+    for answer in raw_resp_test_female_anger:
+        score += params['inv_label_dict'][answer.text]
+    return score/len(raw_resp_test_female_anger)
+
 
 def eval_accuracy(all_label_probs, test_labels, mode=None, p_cf=None):
     # evaluate the accuracy with and without contextual calibration

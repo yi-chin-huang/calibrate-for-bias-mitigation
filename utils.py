@@ -188,6 +188,7 @@ def complete(prompt, l, model, temp=0, num_log_probs=None, echo=False, n=None):
         return complete_gpt3(prompt, l=l, model_name=model, num_log_probs=num_log_probs, echo=echo, n=n)
 
 def construct_prompt(params, train_sentences, train_labels, test_sentence):
+    print('train_sentences----->', train_sentences)
     """construct a single prompt to be fed into the model"""
     # special case when the user defines a custom prompt function. 
     if ('prompt_func' in params.keys()) and (params['prompt_func'] is not None):
@@ -247,9 +248,12 @@ def get_model_response(params, train_sentences, train_labels, test_sentences, re
         else:
             num_tokens_to_predict = params['num_tokens_to_predict']
         resp = complete(test_chunk_prompts, num_tokens_to_predict, params['model'], num_log_probs=params['api_num_log_prob'])
-        print('resp', resp)
+        # print('resp', resp)
         for answer_id, answer in enumerate(resp['choices']):
             all_raw_answers.append(answer)
+            # print('test_chunk_prompts---->', test_chunk_prompts)
+            # print('answer---->', answer)
+
     if return_all_prompts:
         return all_raw_answers, prompts
     else:
