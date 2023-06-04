@@ -292,6 +292,7 @@ def get_model_response(params, train_sentences, train_labels, test_sentences, te
             num_tokens_to_predict = params['num_tokens_to_predict']
         resp = complete(test_chunk_prompts, num_tokens_to_predict, params['model'], num_log_probs=params['api_num_log_prob'])
         for answer_id, answer in enumerate(resp['choices']):
+            print('--->answer', answer)
             all_raw_answers.append(answer)
 
     if return_all_prompts:
@@ -354,9 +355,9 @@ def load_results(params_list):
         node[params['seed']] = saved_result['accuracies']
     print_results(result_tree)
 
-def output_csv(sentences, templates, emotions, genders, races, predicted_intensities, model):
+def output_csv(sentences, templates, emotions, genders, races, predicted_intensities, predicted_prob_one, predicted_prob_two, predicted_prob_three, predicted_prob_four, predicted_prob_five, predicted_prob_one_exp, predicted_prob_two_exp, predicted_prob_three_exp, predicted_prob_four_exp, predicted_prob_five_exp, model):
     # dictionary of lists  
-    dict = {'sentences': sentences, 'templates': templates, 'emotions': emotions, 'genders': genders, 'races': races, 'predicted_intensities': predicted_intensities}  
+    dict = {'sentences': sentences, 'templates': templates, 'emotions': emotions, 'genders': genders, 'races': races, 'predicted_intensities': predicted_intensities, 'predicted_prob_one': predicted_prob_one, 'predicted_prob_two': predicted_prob_two, 'predicted_prob_three': predicted_prob_three, 'predicted_prob_four': predicted_prob_four, 'predicted_prob_five': predicted_prob_five, 'predicted_prob_one_exp': predicted_prob_one_exp, 'predicted_prob_two_exp': predicted_prob_two_exp, 'predicted_prob_three_exp': predicted_prob_three_exp, 'predicted_prob_four_exp': predicted_prob_four_exp, 'predicted_prob_five_exp': predicted_prob_five_exp}  
     df = pd.DataFrame(dict) 
     # saving the dataframe 
-    df.to_csv(f'predicted_results_eec_{model}.csv') 
+    df.to_csv(f'predicted_results_eec_{model}_with_prob.csv') 
