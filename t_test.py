@@ -23,6 +23,7 @@ male_predictions = pivoted_group_by_all_df.male.values.tolist()
 male_predictions = [x for x in male_predictions if str(x) != 'nan']
 
 result = stats.ttest_ind(female_predictions, male_predictions)
+print('number of pairs --->', len(male_predictions))
 print('----->ttest result for gender bias: ', result)
 
 
@@ -36,6 +37,7 @@ aa_predictions = pivoted_group_by_all_df['African-American'].values.tolist()
 aa_predictions = [x for x in aa_predictions if str(x) != 'nan']
 
 result = stats.ttest_ind(euro_predictions, aa_predictions)
+print('number of pairs --->', len(aa_predictionss))
 print('----->ttest result for race bias: ', result)
 
 
