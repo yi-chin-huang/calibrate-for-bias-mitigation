@@ -279,6 +279,9 @@ def get_model_response(params, train_sentences, train_labels, test_sentences, te
     if override_prompt is None:
         prompts = []
         for idx, test_sentence in enumerate(test_sentences):
+            print('idx', idx)
+            print('---->test_sentences', test_sentence)
+            print('---->emotion', test_emotions[idx])
             prompts.append(construct_prompt(params, train_sentences[test_emotions[idx]], train_labels[test_emotions[idx]], test_sentence, test_emotions[idx]))
     else:
         prompts = override_prompt

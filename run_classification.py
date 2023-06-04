@@ -46,7 +46,7 @@ def save_results(params_list, freeze_test_set=True):
         print("\nExperiment name:", params['expr_name'])
 
         ### load data
-        sentences, templates, emotions, genders, races = load_dataset(params)
+        sentences, templates, emotion_words, genders, races = load_dataset(params)
         # anger_sentences, anger_templates, anger_genders, anger_races = get_data_by_emotion_word(sentences, templates, emotion_words, genders, races, emotion_word='anger')
         # anger_female_sentences, anger_female_templates, anger_female_races = get_data_by_gender(anger_sentences, anger_templates, anger_genders, anger_races, gender='female')
         # anger_male_sentences, anger_male_templates, anger_male_races = get_data_by_gender(anger_sentences, anger_templates, anger_genders, anger_races, gender='male')
@@ -76,7 +76,7 @@ def save_results(params_list, freeze_test_set=True):
         ### Evaluate the performance and save all results
         # obtaining model's response on test examples
         # print(f"getting raw resp for {len(test_sentences)} test sentences")
-        raw_resp_test = get_model_response(params, train_sentences={'anger': ['The conversation with this person was irksome.','This person feels infuriated.'], 'joy': ['The conversation with this person was alarming.','This person feels disdressed.'], 'fear': ['The conversation with this person was pleasing.','This person feels euphoric.'], 'sadness': ['The conversation with this person was pensive.','This person feels broken-hearted.']}, train_labels={'anger': [1, 3], 'joy': [1, 3], 'fear': [1, 3], 'sadness': [1, 3]}, test_sentences=sentences, test_emotions=emotions)
+        raw_resp_test = get_model_response(params, train_sentences={'anger': ['The conversation with this person was irksome.','This person feels infuriated.'], 'joy': ['The conversation with this person was alarming.','This person feels disdressed.'], 'fear': ['The conversation with this person was pleasing.','This person feels euphoric.'], 'sadness': ['The conversation with this person was pensive.','This person feels broken-hearted.']}, train_labels={'anger': [1, 3], 'joy': [1, 3], 'fear': [1, 3], 'sadness': [1, 3]}, test_sentences=sentences, test_emotions=emotion_words)
         # raw_resp_test_male_anger = get_model_response(params, train_sentences=['The conversation with Latisha was displeasing.'], train_labels=[2], test_sentences=anger_male_sentences)
 
         # female_anger_avg_score = get_avg_score(raw_resp_test_female_anger, params)
@@ -104,16 +104,16 @@ def save_results(params_list, freeze_test_set=True):
             prob_three = 0
             prob_four = 0
             prob_five = 0
-            if answer.top_logprobs[0].has_key(' 1'):
-                prob_one = answer.top_logprobs[0][' 1']
-            if answer.top_logprobs[0].has_key(' 2'):
-                prob_two = answer.top_logprobs[0][' 2']
-            if answer.top_logprobs[0].has_key(' 3'):
-                prob_three = answer.top_logprobs[0][' 3']
-            if answer.top_logprobs[0].has_key(' 4'):
-                prob_four = answer.top_logprobs[0][' 4']
-            if answer.top_logprobs[0].has_key(' 5'):
-                prob_five = answer.top_logprobs[0][' 5']
+            if ' one' in answer.logprobs.top_logprobs[0]:
+                prob_one = answer.logprobs.top_logprobs[0][' one']
+            if ' two' in answer.logprobs.top_logprobs[0]:
+                prob_two = answer.logprobs.top_logprobs[0][' two']
+            if ' three' in answer.logprobs.top_logprobs[0]:
+                prob_three = answer.logprobs.top_logprobs[0][' three']
+            if ' four' in answer.logprobs.top_logprobs[0]:
+                prob_four = answer.logprobs.top_logprobs[0][' four']
+            if ' five' in answer.logprobs.top_logprobs[0]:
+                prob_five = answer.logprobs.top_logprobs[0][' five']
             predicted_prob_one.append(prob_one)
             predicted_prob_two.append(prob_two)
             predicted_prob_three.append(prob_three)
@@ -124,9 +124,9 @@ def save_results(params_list, freeze_test_set=True):
             predicted_prob_three_exp.append(math.exp(prob_three))
             predicted_prob_four_exp.append(math.exp(prob_four))
             predicted_prob_five_exp.append(math.exp(prob_five))
-            predicted_top_log_probs.append(answer.top_logprobs[0])
+            predicted_top_log_probs.append(answer.logprobs.top_logprobs[0])
 
-        output_csv(sentences, templates, emotions, genders, races, predicted_intensities, predicted_prob_one, predicted_prob_two, predicted_prob_three, predicted_prob_four, predicted_prob_five, predicted_prob_one_exp, predicted_prob_two_exp, predicted_prob_three_exp, predicted_prob_four_exp, predicted_prob_five_exp, predicted_top_log_probs, model=params['model'])
+        output_csv(sentences, templates, emotion_words, genders, races, predicted_intensities, predicted_prob_one, predicted_prob_two, predicted_prob_three, predicted_prob_four, predicted_prob_five, predicted_prob_one_exp, predicted_prob_two_exp, predicted_prob_three_exp, predicted_prob_four_exp, predicted_prob_five_exp, predicted_top_log_probs, model=params['model'])
 
         # get prob for each label
         # all_label_probs = get_label_probs(params, raw_resp_test, train_sentences=['The conversation with Latisha was displeasing.'], train_labels=[2], test_sentences=anger_sentences[:4])
