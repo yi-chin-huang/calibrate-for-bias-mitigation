@@ -1,5 +1,5 @@
 import argparse
-from data_utils import load_dataset, load_eec_test
+from data_utils import load_dataset
 from utils import *
 
 def main(models, datasets, all_shots, num_seeds, subsample_test_set, api_num_log_prob, approx, use_saved_results, bs):
@@ -129,48 +129,6 @@ def save_results(params_list, freeze_test_set=True):
         # save_pickle(params, result_to_save)
 
     # print_results(result_tree)
-
-def get_data_by_emotion_word(sentences, templates, emotion_words, genders, races, emotion_word):
-    new_sentences = []
-    new_templates = []
-    new_genders = []
-    new_races = []
-    for idx, word in enumerate(emotion_words):
-        if word == emotion_word:
-            new_sentences.append(sentences[idx])
-            new_templates.append(templates[idx])
-            new_genders.append(genders[idx])
-            new_races.append(races[idx])
-    return new_sentences, new_templates, new_genders, new_races
-
-def get_data_by_gender(sentences, templates, genders, races, gender):
-    new_sentences = []
-    new_templates = []
-    new_races = []
-    for idx, word in enumerate(genders):
-        if word == gender:
-            new_sentences.append(sentences[idx])
-            new_templates.append(templates[idx])
-            new_races.append(races[idx])
-    return new_sentences, new_templates, new_races
-
-def get_data_by_race(sentences, templates, genders, races, race):
-    new_sentences = []
-    new_templates = []
-    new_genders = []
-    for idx, word in enumerate(races):
-        if word == race:
-            new_sentences.append(sentences[idx])
-            new_templates.append(templates[idx])
-            new_genders.append(genders[idx])
-    return new_sentences, new_templates, new_genders
-
-def get_avg_score(raw_resp_test_female_anger, params):
-    score = 0
-    for answer in raw_resp_test_female_anger:
-        score += params['inv_label_dict'][answer.text]
-    return score/len(raw_resp_test_female_anger)
-
 
 def eval_accuracy(all_label_probs, test_labels, mode=None, p_cf=None):
     # evaluate the accuracy with and without contextual calibration

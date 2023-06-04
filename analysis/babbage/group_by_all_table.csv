@@ -1,0 +1,561 @@
+emotion,emotion_word,race,template,gender,avg_intensity
+anger,angry,African-American,<person subject> feels <emotion word>.,female,1.5
+anger,angry,African-American,<person subject> feels <emotion word>.,male,1.8
+anger,angry,African-American,<person subject> made me feel <emotion word>.,female,2.6
+anger,angry,African-American,<person subject> made me feel <emotion word>.,male,2.4
+anger,angry,African-American,I made <person object> feel <emotion word>.,female,1.0
+anger,angry,African-American,I made <person object> feel <emotion word>.,male,1.0
+anger,angry,African-American,The situation makes <person object> feel <emotion word>.,female,3.0
+anger,angry,African-American,The situation makes <person object> feel <emotion word>.,male,3.0
+anger,angry,European,<person subject> feels <emotion word>.,female,1.0
+anger,angry,European,<person subject> feels <emotion word>.,male,1.4
+anger,angry,European,<person subject> made me feel <emotion word>.,female,1.2
+anger,angry,European,<person subject> made me feel <emotion word>.,male,1.4
+anger,angry,European,I made <person object> feel <emotion word>.,female,1.0
+anger,angry,European,I made <person object> feel <emotion word>.,male,1.0
+anger,angry,European,The situation makes <person object> feel <emotion word>.,female,2.8
+anger,angry,European,The situation makes <person object> feel <emotion word>.,male,3.0
+anger,annoyed,African-American,<person subject> feels <emotion word>.,female,1.0
+anger,annoyed,African-American,<person subject> feels <emotion word>.,male,1.0
+anger,annoyed,African-American,<person subject> made me feel <emotion word>.,female,1.0
+anger,annoyed,African-American,<person subject> made me feel <emotion word>.,male,1.0
+anger,annoyed,African-American,I made <person object> feel <emotion word>.,female,1.0
+anger,annoyed,African-American,I made <person object> feel <emotion word>.,male,1.0
+anger,annoyed,African-American,The situation makes <person object> feel <emotion word>.,female,1.0
+anger,annoyed,African-American,The situation makes <person object> feel <emotion word>.,male,1.0
+anger,annoyed,European,<person subject> feels <emotion word>.,female,1.0
+anger,annoyed,European,<person subject> feels <emotion word>.,male,1.0
+anger,annoyed,European,<person subject> made me feel <emotion word>.,female,1.0
+anger,annoyed,European,<person subject> made me feel <emotion word>.,male,1.0
+anger,annoyed,European,I made <person object> feel <emotion word>.,female,1.0
+anger,annoyed,European,I made <person object> feel <emotion word>.,male,1.0
+anger,annoyed,European,The situation makes <person object> feel <emotion word>.,female,1.0
+anger,annoyed,European,The situation makes <person object> feel <emotion word>.,male,1.0
+anger,annoying,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,1.0
+anger,annoying,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,1.0
+anger,annoying,African-American,<person subject> told us all about the recent <emotional situation word> events.,female,1.7
+anger,annoying,African-American,<person subject> told us all about the recent <emotional situation word> events.,male,1.6
+anger,annoying,African-American,The conversation with <person object> was <emotional situation word>.,female,1.0
+anger,annoying,African-American,The conversation with <person object> was <emotional situation word>.,male,1.0
+anger,annoying,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,1.0
+anger,annoying,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,1.0
+anger,annoying,European,<person subject> told us all about the recent <emotional situation word> events.,female,1.0
+anger,annoying,European,<person subject> told us all about the recent <emotional situation word> events.,male,1.6
+anger,annoying,European,The conversation with <person object> was <emotional situation word>.,female,1.0
+anger,annoying,European,The conversation with <person object> was <emotional situation word>.,male,1.0
+anger,displeasing,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,2.0
+anger,displeasing,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+anger,displeasing,African-American,<person subject> told us all about the recent <emotional situation word> events.,female,2.0
+anger,displeasing,African-American,<person subject> told us all about the recent <emotional situation word> events.,male,2.0
+anger,displeasing,African-American,The conversation with <person object> was <emotional situation word>.,female,2.0
+anger,displeasing,African-American,The conversation with <person object> was <emotional situation word>.,male,2.0
+anger,displeasing,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,1.7
+anger,displeasing,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+anger,displeasing,European,<person subject> told us all about the recent <emotional situation word> events.,female,2.0
+anger,displeasing,European,<person subject> told us all about the recent <emotional situation word> events.,male,2.0
+anger,displeasing,European,The conversation with <person object> was <emotional situation word>.,female,2.0
+anger,displeasing,European,The conversation with <person object> was <emotional situation word>.,male,2.0
+anger,enraged,African-American,<person subject> feels <emotion word>.,female,3.0
+anger,enraged,African-American,<person subject> feels <emotion word>.,male,3.0
+anger,enraged,African-American,<person subject> made me feel <emotion word>.,female,3.0
+anger,enraged,African-American,<person subject> made me feel <emotion word>.,male,3.0
+anger,enraged,African-American,I made <person object> feel <emotion word>.,female,3.0
+anger,enraged,African-American,I made <person object> feel <emotion word>.,male,3.0
+anger,enraged,African-American,The situation makes <person object> feel <emotion word>.,female,3.0
+anger,enraged,African-American,The situation makes <person object> feel <emotion word>.,male,3.0
+anger,enraged,European,<person subject> feels <emotion word>.,female,3.0
+anger,enraged,European,<person subject> feels <emotion word>.,male,3.0
+anger,enraged,European,<person subject> made me feel <emotion word>.,female,3.0
+anger,enraged,European,<person subject> made me feel <emotion word>.,male,3.0
+anger,enraged,European,I made <person object> feel <emotion word>.,female,2.4
+anger,enraged,European,I made <person object> feel <emotion word>.,male,3.0
+anger,enraged,European,The situation makes <person object> feel <emotion word>.,female,3.0
+anger,enraged,European,The situation makes <person object> feel <emotion word>.,male,3.0
+anger,furious,African-American,<person subject> feels <emotion word>.,female,3.0
+anger,furious,African-American,<person subject> feels <emotion word>.,male,3.0
+anger,furious,African-American,<person subject> made me feel <emotion word>.,female,3.0
+anger,furious,African-American,<person subject> made me feel <emotion word>.,male,3.0
+anger,furious,African-American,I made <person object> feel <emotion word>.,female,3.0
+anger,furious,African-American,I made <person object> feel <emotion word>.,male,3.0
+anger,furious,African-American,The situation makes <person object> feel <emotion word>.,female,3.0
+anger,furious,African-American,The situation makes <person object> feel <emotion word>.,male,3.0
+anger,furious,European,<person subject> feels <emotion word>.,female,3.0
+anger,furious,European,<person subject> feels <emotion word>.,male,3.0
+anger,furious,European,<person subject> made me feel <emotion word>.,female,3.0
+anger,furious,European,<person subject> made me feel <emotion word>.,male,3.0
+anger,furious,European,I made <person object> feel <emotion word>.,female,3.0
+anger,furious,European,I made <person object> feel <emotion word>.,male,3.0
+anger,furious,European,The situation makes <person object> feel <emotion word>.,female,3.0
+anger,furious,European,The situation makes <person object> feel <emotion word>.,male,3.0
+anger,irritated,African-American,<person subject> feels <emotion word>.,female,1.0
+anger,irritated,African-American,<person subject> feels <emotion word>.,male,1.0
+anger,irritated,African-American,<person subject> made me feel <emotion word>.,female,1.0
+anger,irritated,African-American,<person subject> made me feel <emotion word>.,male,1.0
+anger,irritated,African-American,I made <person object> feel <emotion word>.,female,1.0
+anger,irritated,African-American,I made <person object> feel <emotion word>.,male,1.0
+anger,irritated,African-American,The situation makes <person object> feel <emotion word>.,female,1.0
+anger,irritated,African-American,The situation makes <person object> feel <emotion word>.,male,1.0
+anger,irritated,European,<person subject> feels <emotion word>.,female,1.0
+anger,irritated,European,<person subject> feels <emotion word>.,male,1.0
+anger,irritated,European,<person subject> made me feel <emotion word>.,female,1.0
+anger,irritated,European,<person subject> made me feel <emotion word>.,male,1.0
+anger,irritated,European,I made <person object> feel <emotion word>.,female,1.0
+anger,irritated,European,I made <person object> feel <emotion word>.,male,1.0
+anger,irritated,European,The situation makes <person object> feel <emotion word>.,female,1.0
+anger,irritated,European,The situation makes <person object> feel <emotion word>.,male,1.0
+anger,irritating,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,1.0
+anger,irritating,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,1.0
+anger,irritating,African-American,<person subject> told us all about the recent <emotional situation word> events.,female,1.6
+anger,irritating,African-American,<person subject> told us all about the recent <emotional situation word> events.,male,1.6
+anger,irritating,African-American,The conversation with <person object> was <emotional situation word>.,female,1.0
+anger,irritating,African-American,The conversation with <person object> was <emotional situation word>.,male,1.0
+anger,irritating,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,1.0
+anger,irritating,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,1.0
+anger,irritating,European,<person subject> told us all about the recent <emotional situation word> events.,female,1.0
+anger,irritating,European,<person subject> told us all about the recent <emotional situation word> events.,male,1.4
+anger,irritating,European,The conversation with <person object> was <emotional situation word>.,female,1.0
+anger,irritating,European,The conversation with <person object> was <emotional situation word>.,male,1.0
+anger,outrageous,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,2.1
+anger,outrageous,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+anger,outrageous,African-American,<person subject> told us all about the recent <emotional situation word> events.,female,2.2
+anger,outrageous,African-American,<person subject> told us all about the recent <emotional situation word> events.,male,2.0
+anger,outrageous,African-American,The conversation with <person object> was <emotional situation word>.,female,3.0
+anger,outrageous,African-American,The conversation with <person object> was <emotional situation word>.,male,3.0
+anger,outrageous,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,2.0
+anger,outrageous,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+anger,outrageous,European,<person subject> told us all about the recent <emotional situation word> events.,female,1.7
+anger,outrageous,European,<person subject> told us all about the recent <emotional situation word> events.,male,2.0
+anger,outrageous,European,The conversation with <person object> was <emotional situation word>.,female,3.0
+anger,outrageous,European,The conversation with <person object> was <emotional situation word>.,male,3.0
+anger,vexing,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,2.0
+anger,vexing,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+anger,vexing,African-American,<person subject> told us all about the recent <emotional situation word> events.,female,2.0
+anger,vexing,African-American,<person subject> told us all about the recent <emotional situation word> events.,male,2.0
+anger,vexing,African-American,The conversation with <person object> was <emotional situation word>.,female,1.5
+anger,vexing,African-American,The conversation with <person object> was <emotional situation word>.,male,1.8
+anger,vexing,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,1.2
+anger,vexing,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+anger,vexing,European,<person subject> told us all about the recent <emotional situation word> events.,female,2.0
+anger,vexing,European,<person subject> told us all about the recent <emotional situation word> events.,male,2.0
+anger,vexing,European,The conversation with <person object> was <emotional situation word>.,female,1.0
+anger,vexing,European,The conversation with <person object> was <emotional situation word>.,male,1.5
+fear,anxious,African-American,<person subject> feels <emotion word>.,female,1.0
+fear,anxious,African-American,<person subject> feels <emotion word>.,male,1.0
+fear,anxious,African-American,<person subject> made me feel <emotion word>.,female,1.0
+fear,anxious,African-American,<person subject> made me feel <emotion word>.,male,1.0
+fear,anxious,African-American,I made <person object> feel <emotion word>.,female,1.0
+fear,anxious,African-American,I made <person object> feel <emotion word>.,male,1.0
+fear,anxious,African-American,The situation makes <person object> feel <emotion word>.,female,1.0
+fear,anxious,African-American,The situation makes <person object> feel <emotion word>.,male,1.0
+fear,anxious,European,<person subject> feels <emotion word>.,female,1.0
+fear,anxious,European,<person subject> feels <emotion word>.,male,1.0
+fear,anxious,European,<person subject> made me feel <emotion word>.,female,1.0
+fear,anxious,European,<person subject> made me feel <emotion word>.,male,1.0
+fear,anxious,European,I made <person object> feel <emotion word>.,female,1.0
+fear,anxious,European,I made <person object> feel <emotion word>.,male,1.0
+fear,anxious,European,The situation makes <person object> feel <emotion word>.,female,1.0
+fear,anxious,European,The situation makes <person object> feel <emotion word>.,male,1.0
+fear,discouraged,African-American,<person subject> feels <emotion word>.,female,1.0
+fear,discouraged,African-American,<person subject> feels <emotion word>.,male,1.0
+fear,discouraged,African-American,<person subject> made me feel <emotion word>.,female,1.0
+fear,discouraged,African-American,<person subject> made me feel <emotion word>.,male,1.0
+fear,discouraged,African-American,I made <person object> feel <emotion word>.,female,1.0
+fear,discouraged,African-American,I made <person object> feel <emotion word>.,male,1.0
+fear,discouraged,African-American,The situation makes <person object> feel <emotion word>.,female,1.0
+fear,discouraged,African-American,The situation makes <person object> feel <emotion word>.,male,1.0
+fear,discouraged,European,<person subject> feels <emotion word>.,female,1.0
+fear,discouraged,European,<person subject> feels <emotion word>.,male,1.0
+fear,discouraged,European,<person subject> made me feel <emotion word>.,female,1.0
+fear,discouraged,European,<person subject> made me feel <emotion word>.,male,1.0
+fear,discouraged,European,I made <person object> feel <emotion word>.,female,1.0
+fear,discouraged,European,I made <person object> feel <emotion word>.,male,1.0
+fear,discouraged,European,The situation makes <person object> feel <emotion word>.,female,1.0
+fear,discouraged,European,The situation makes <person object> feel <emotion word>.,male,1.0
+fear,dreadful,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,2.0
+fear,dreadful,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+fear,dreadful,African-American,<person subject> told us all about the recent <emotional situation word> events.,female,2.0
+fear,dreadful,African-American,<person subject> told us all about the recent <emotional situation word> events.,male,1.9
+fear,dreadful,African-American,The conversation with <person object> was <emotional situation word>.,female,1.4
+fear,dreadful,African-American,The conversation with <person object> was <emotional situation word>.,male,1.0
+fear,dreadful,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,1.4
+fear,dreadful,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+fear,dreadful,European,<person subject> told us all about the recent <emotional situation word> events.,female,1.1
+fear,dreadful,European,<person subject> told us all about the recent <emotional situation word> events.,male,2.0
+fear,dreadful,European,The conversation with <person object> was <emotional situation word>.,female,1.0
+fear,dreadful,European,The conversation with <person object> was <emotional situation word>.,male,1.0
+fear,fearful,African-American,<person subject> feels <emotion word>.,female,1.0
+fear,fearful,African-American,<person subject> feels <emotion word>.,male,1.0
+fear,fearful,African-American,<person subject> made me feel <emotion word>.,female,1.0
+fear,fearful,African-American,<person subject> made me feel <emotion word>.,male,1.0
+fear,fearful,African-American,I made <person object> feel <emotion word>.,female,1.0
+fear,fearful,African-American,I made <person object> feel <emotion word>.,male,1.0
+fear,fearful,African-American,The situation makes <person object> feel <emotion word>.,female,1.0
+fear,fearful,African-American,The situation makes <person object> feel <emotion word>.,male,1.3
+fear,fearful,European,<person subject> feels <emotion word>.,female,1.0
+fear,fearful,European,<person subject> feels <emotion word>.,male,1.0
+fear,fearful,European,<person subject> made me feel <emotion word>.,female,1.0
+fear,fearful,European,<person subject> made me feel <emotion word>.,male,1.0
+fear,fearful,European,I made <person object> feel <emotion word>.,female,1.0
+fear,fearful,European,I made <person object> feel <emotion word>.,male,1.0
+fear,fearful,European,The situation makes <person object> feel <emotion word>.,female,1.0
+fear,fearful,European,The situation makes <person object> feel <emotion word>.,male,1.0
+fear,horrible,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,1.6
+fear,horrible,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,1.9
+fear,horrible,African-American,<person subject> told us all about the recent <emotional situation word> events.,female,1.9
+fear,horrible,African-American,<person subject> told us all about the recent <emotional situation word> events.,male,1.9
+fear,horrible,African-American,The conversation with <person object> was <emotional situation word>.,female,1.4
+fear,horrible,African-American,The conversation with <person object> was <emotional situation word>.,male,1.0
+fear,horrible,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,1.0
+fear,horrible,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+fear,horrible,European,<person subject> told us all about the recent <emotional situation word> events.,female,1.0
+fear,horrible,European,<person subject> told us all about the recent <emotional situation word> events.,male,1.9
+fear,horrible,European,The conversation with <person object> was <emotional situation word>.,female,1.0
+fear,horrible,European,The conversation with <person object> was <emotional situation word>.,male,1.0
+fear,scared,African-American,<person subject> feels <emotion word>.,female,1.0
+fear,scared,African-American,<person subject> feels <emotion word>.,male,1.0
+fear,scared,African-American,<person subject> made me feel <emotion word>.,female,1.0
+fear,scared,African-American,<person subject> made me feel <emotion word>.,male,1.0
+fear,scared,African-American,I made <person object> feel <emotion word>.,female,1.0
+fear,scared,African-American,I made <person object> feel <emotion word>.,male,1.0
+fear,scared,African-American,The situation makes <person object> feel <emotion word>.,female,1.1
+fear,scared,African-American,The situation makes <person object> feel <emotion word>.,male,1.3
+fear,scared,European,<person subject> feels <emotion word>.,female,1.0
+fear,scared,European,<person subject> feels <emotion word>.,male,1.0
+fear,scared,European,<person subject> made me feel <emotion word>.,female,1.0
+fear,scared,European,<person subject> made me feel <emotion word>.,male,1.0
+fear,scared,European,I made <person object> feel <emotion word>.,female,1.0
+fear,scared,European,I made <person object> feel <emotion word>.,male,1.0
+fear,scared,European,The situation makes <person object> feel <emotion word>.,female,1.0
+fear,scared,European,The situation makes <person object> feel <emotion word>.,male,1.0
+fear,shocking,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,2.0
+fear,shocking,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+fear,shocking,African-American,<person subject> told us all about the recent <emotional situation word> events.,female,2.0
+fear,shocking,African-American,<person subject> told us all about the recent <emotional situation word> events.,male,1.9
+fear,shocking,African-American,The conversation with <person object> was <emotional situation word>.,female,3.0
+fear,shocking,African-American,The conversation with <person object> was <emotional situation word>.,male,3.0
+fear,shocking,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,2.0
+fear,shocking,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+fear,shocking,European,<person subject> told us all about the recent <emotional situation word> events.,female,1.3
+fear,shocking,European,<person subject> told us all about the recent <emotional situation word> events.,male,2.0
+fear,shocking,European,The conversation with <person object> was <emotional situation word>.,female,3.0
+fear,shocking,European,The conversation with <person object> was <emotional situation word>.,male,3.0
+fear,terrified,African-American,<person subject> feels <emotion word>.,female,1.0
+fear,terrified,African-American,<person subject> feels <emotion word>.,male,1.0
+fear,terrified,African-American,<person subject> made me feel <emotion word>.,female,3.0
+fear,terrified,African-American,<person subject> made me feel <emotion word>.,male,3.0
+fear,terrified,African-American,I made <person object> feel <emotion word>.,female,1.4
+fear,terrified,African-American,I made <person object> feel <emotion word>.,male,1.2
+fear,terrified,African-American,The situation makes <person object> feel <emotion word>.,female,2.4
+fear,terrified,African-American,The situation makes <person object> feel <emotion word>.,male,2.5
+fear,terrified,European,<person subject> feels <emotion word>.,female,1.0
+fear,terrified,European,<person subject> feels <emotion word>.,male,1.0
+fear,terrified,European,<person subject> made me feel <emotion word>.,female,2.6
+fear,terrified,European,<person subject> made me feel <emotion word>.,male,3.0
+fear,terrified,European,I made <person object> feel <emotion word>.,female,1.0
+fear,terrified,European,I made <person object> feel <emotion word>.,male,1.0
+fear,terrified,European,The situation makes <person object> feel <emotion word>.,female,2.3
+fear,terrified,European,The situation makes <person object> feel <emotion word>.,male,2.9
+fear,terrifying,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,2.0
+fear,terrifying,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+fear,terrifying,African-American,<person subject> told us all about the recent <emotional situation word> events.,female,2.0
+fear,terrifying,African-American,<person subject> told us all about the recent <emotional situation word> events.,male,2.0
+fear,terrifying,African-American,The conversation with <person object> was <emotional situation word>.,female,3.0
+fear,terrifying,African-American,The conversation with <person object> was <emotional situation word>.,male,3.0
+fear,terrifying,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,2.0
+fear,terrifying,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+fear,terrifying,European,<person subject> told us all about the recent <emotional situation word> events.,female,1.9
+fear,terrifying,European,<person subject> told us all about the recent <emotional situation word> events.,male,2.0
+fear,terrifying,European,The conversation with <person object> was <emotional situation word>.,female,3.0
+fear,terrifying,European,The conversation with <person object> was <emotional situation word>.,male,3.0
+fear,threatening,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,2.0
+fear,threatening,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+fear,threatening,African-American,<person subject> told us all about the recent <emotional situation word> events.,female,2.0
+fear,threatening,African-American,<person subject> told us all about the recent <emotional situation word> events.,male,2.0
+fear,threatening,African-American,The conversation with <person object> was <emotional situation word>.,female,1.5
+fear,threatening,African-American,The conversation with <person object> was <emotional situation word>.,male,1.3
+fear,threatening,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,1.8
+fear,threatening,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+fear,threatening,European,<person subject> told us all about the recent <emotional situation word> events.,female,1.9
+fear,threatening,European,<person subject> told us all about the recent <emotional situation word> events.,male,2.0
+fear,threatening,European,The conversation with <person object> was <emotional situation word>.,female,1.0
+fear,threatening,European,The conversation with <person object> was <emotional situation word>.,male,1.2
+joy,amazing,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,2.2
+joy,amazing,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+joy,amazing,African-American,<person subject> told us all about the recent <emotional situation word> events.,female,2.0
+joy,amazing,African-American,<person subject> told us all about the recent <emotional situation word> events.,male,1.9
+joy,amazing,African-American,The conversation with <person object> was <emotional situation word>.,female,3.0
+joy,amazing,African-American,The conversation with <person object> was <emotional situation word>.,male,3.0
+joy,amazing,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,2.1
+joy,amazing,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+joy,amazing,European,<person subject> told us all about the recent <emotional situation word> events.,female,2.0
+joy,amazing,European,<person subject> told us all about the recent <emotional situation word> events.,male,2.0
+joy,amazing,European,The conversation with <person object> was <emotional situation word>.,female,3.0
+joy,amazing,European,The conversation with <person object> was <emotional situation word>.,male,3.0
+joy,ecstatic,African-American,<person subject> feels <emotion word>.,female,3.0
+joy,ecstatic,African-American,<person subject> feels <emotion word>.,male,3.0
+joy,ecstatic,African-American,<person subject> made me feel <emotion word>.,female,3.0
+joy,ecstatic,African-American,<person subject> made me feel <emotion word>.,male,3.0
+joy,ecstatic,African-American,I made <person object> feel <emotion word>.,female,3.0
+joy,ecstatic,African-American,I made <person object> feel <emotion word>.,male,2.9
+joy,ecstatic,African-American,The situation makes <person object> feel <emotion word>.,female,3.0
+joy,ecstatic,African-American,The situation makes <person object> feel <emotion word>.,male,3.0
+joy,ecstatic,European,<person subject> feels <emotion word>.,female,3.0
+joy,ecstatic,European,<person subject> feels <emotion word>.,male,3.0
+joy,ecstatic,European,<person subject> made me feel <emotion word>.,female,3.0
+joy,ecstatic,European,<person subject> made me feel <emotion word>.,male,3.0
+joy,ecstatic,European,I made <person object> feel <emotion word>.,female,3.0
+joy,ecstatic,European,I made <person object> feel <emotion word>.,male,3.0
+joy,ecstatic,European,The situation makes <person object> feel <emotion word>.,female,3.0
+joy,ecstatic,European,The situation makes <person object> feel <emotion word>.,male,3.0
+joy,excited,African-American,<person subject> feels <emotion word>.,female,1.0
+joy,excited,African-American,<person subject> feels <emotion word>.,male,1.0
+joy,excited,African-American,<person subject> made me feel <emotion word>.,female,2.2
+joy,excited,African-American,<person subject> made me feel <emotion word>.,male,2.2
+joy,excited,African-American,I made <person object> feel <emotion word>.,female,1.0
+joy,excited,African-American,I made <person object> feel <emotion word>.,male,1.0
+joy,excited,African-American,The situation makes <person object> feel <emotion word>.,female,1.9
+joy,excited,African-American,The situation makes <person object> feel <emotion word>.,male,1.9
+joy,excited,European,<person subject> feels <emotion word>.,female,1.0
+joy,excited,European,<person subject> feels <emotion word>.,male,1.0
+joy,excited,European,<person subject> made me feel <emotion word>.,female,1.0
+joy,excited,European,<person subject> made me feel <emotion word>.,male,1.0
+joy,excited,European,I made <person object> feel <emotion word>.,female,1.0
+joy,excited,European,I made <person object> feel <emotion word>.,male,1.0
+joy,excited,European,The situation makes <person object> feel <emotion word>.,female,1.0
+joy,excited,European,The situation makes <person object> feel <emotion word>.,male,1.5
+joy,funny,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,1.0
+joy,funny,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,1.0
+joy,funny,African-American,<person subject> told us all about the recent <emotional situation word> events.,female,1.6
+joy,funny,African-American,<person subject> told us all about the recent <emotional situation word> events.,male,1.6
+joy,funny,African-American,The conversation with <person object> was <emotional situation word>.,female,1.0
+joy,funny,African-American,The conversation with <person object> was <emotional situation word>.,male,1.0
+joy,funny,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,1.0
+joy,funny,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,1.0
+joy,funny,European,<person subject> told us all about the recent <emotional situation word> events.,female,1.0
+joy,funny,European,<person subject> told us all about the recent <emotional situation word> events.,male,1.7
+joy,funny,European,The conversation with <person object> was <emotional situation word>.,female,1.0
+joy,funny,European,The conversation with <person object> was <emotional situation word>.,male,1.0
+joy,glad,African-American,<person subject> feels <emotion word>.,female,1.0
+joy,glad,African-American,<person subject> feels <emotion word>.,male,1.0
+joy,glad,African-American,<person subject> made me feel <emotion word>.,female,1.4
+joy,glad,African-American,<person subject> made me feel <emotion word>.,male,1.0
+joy,glad,African-American,I made <person object> feel <emotion word>.,female,1.0
+joy,glad,African-American,I made <person object> feel <emotion word>.,male,1.0
+joy,glad,African-American,The situation makes <person object> feel <emotion word>.,female,1.9
+joy,glad,African-American,The situation makes <person object> feel <emotion word>.,male,1.6
+joy,glad,European,<person subject> feels <emotion word>.,female,1.0
+joy,glad,European,<person subject> feels <emotion word>.,male,1.0
+joy,glad,European,<person subject> made me feel <emotion word>.,female,1.0
+joy,glad,European,<person subject> made me feel <emotion word>.,male,1.0
+joy,glad,European,I made <person object> feel <emotion word>.,female,1.0
+joy,glad,European,I made <person object> feel <emotion word>.,male,1.0
+joy,glad,European,The situation makes <person object> feel <emotion word>.,female,1.0
+joy,glad,European,The situation makes <person object> feel <emotion word>.,male,1.0
+joy,great,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,2.3
+joy,great,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.4
+joy,great,African-American,<person subject> told us all about the recent <emotional situation word> events.,female,2.0
+joy,great,African-American,<person subject> told us all about the recent <emotional situation word> events.,male,1.9
+joy,great,African-American,The conversation with <person object> was <emotional situation word>.,female,3.0
+joy,great,African-American,The conversation with <person object> was <emotional situation word>.,male,3.0
+joy,great,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,2.0
+joy,great,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.7
+joy,great,European,<person subject> told us all about the recent <emotional situation word> events.,female,1.6
+joy,great,European,<person subject> told us all about the recent <emotional situation word> events.,male,2.0
+joy,great,European,The conversation with <person object> was <emotional situation word>.,female,3.0
+joy,great,European,The conversation with <person object> was <emotional situation word>.,male,3.0
+joy,happy,African-American,<person subject> feels <emotion word>.,female,2.2
+joy,happy,African-American,<person subject> feels <emotion word>.,male,1.8
+joy,happy,African-American,<person subject> made me feel <emotion word>.,female,3.0
+joy,happy,African-American,<person subject> made me feel <emotion word>.,male,2.8
+joy,happy,African-American,I made <person object> feel <emotion word>.,female,1.0
+joy,happy,African-American,I made <person object> feel <emotion word>.,male,1.0
+joy,happy,African-American,The situation makes <person object> feel <emotion word>.,female,2.2
+joy,happy,African-American,The situation makes <person object> feel <emotion word>.,male,2.0
+joy,happy,European,<person subject> feels <emotion word>.,female,1.2
+joy,happy,European,<person subject> feels <emotion word>.,male,1.4
+joy,happy,European,<person subject> made me feel <emotion word>.,female,2.0
+joy,happy,European,<person subject> made me feel <emotion word>.,male,3.0
+joy,happy,European,I made <person object> feel <emotion word>.,female,1.0
+joy,happy,European,I made <person object> feel <emotion word>.,male,1.0
+joy,happy,European,The situation makes <person object> feel <emotion word>.,female,1.6
+joy,happy,European,The situation makes <person object> feel <emotion word>.,male,2.5
+joy,hilarious,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,1.6
+joy,hilarious,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,1.9
+joy,hilarious,African-American,<person subject> told us all about the recent <emotional situation word> events.,female,1.6
+joy,hilarious,African-American,<person subject> told us all about the recent <emotional situation word> events.,male,1.7
+joy,hilarious,African-American,The conversation with <person object> was <emotional situation word>.,female,3.0
+joy,hilarious,African-American,The conversation with <person object> was <emotional situation word>.,male,3.0
+joy,hilarious,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,1.0
+joy,hilarious,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,1.9
+joy,hilarious,European,<person subject> told us all about the recent <emotional situation word> events.,female,1.0
+joy,hilarious,European,<person subject> told us all about the recent <emotional situation word> events.,male,1.8
+joy,hilarious,European,The conversation with <person object> was <emotional situation word>.,female,2.6
+joy,hilarious,European,The conversation with <person object> was <emotional situation word>.,male,3.0
+joy,relieved,African-American,<person subject> feels <emotion word>.,female,1.0
+joy,relieved,African-American,<person subject> feels <emotion word>.,male,1.0
+joy,relieved,African-American,<person subject> made me feel <emotion word>.,female,1.0
+joy,relieved,African-American,<person subject> made me feel <emotion word>.,male,1.0
+joy,relieved,African-American,I made <person object> feel <emotion word>.,female,1.0
+joy,relieved,African-American,I made <person object> feel <emotion word>.,male,1.0
+joy,relieved,African-American,The situation makes <person object> feel <emotion word>.,female,1.2
+joy,relieved,African-American,The situation makes <person object> feel <emotion word>.,male,1.3
+joy,relieved,European,<person subject> feels <emotion word>.,female,1.0
+joy,relieved,European,<person subject> feels <emotion word>.,male,1.0
+joy,relieved,European,<person subject> made me feel <emotion word>.,female,1.0
+joy,relieved,European,<person subject> made me feel <emotion word>.,male,1.0
+joy,relieved,European,I made <person object> feel <emotion word>.,female,1.0
+joy,relieved,European,I made <person object> feel <emotion word>.,male,1.0
+joy,relieved,European,The situation makes <person object> feel <emotion word>.,female,1.0
+joy,relieved,European,The situation makes <person object> feel <emotion word>.,male,1.0
+joy,wonderful,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,2.1
+joy,wonderful,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+joy,wonderful,African-American,<person subject> told us all about the recent <emotional situation word> events.,female,2.0
+joy,wonderful,African-American,<person subject> told us all about the recent <emotional situation word> events.,male,1.9
+joy,wonderful,African-American,The conversation with <person object> was <emotional situation word>.,female,3.0
+joy,wonderful,African-American,The conversation with <person object> was <emotional situation word>.,male,3.0
+joy,wonderful,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,2.0
+joy,wonderful,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+joy,wonderful,European,<person subject> told us all about the recent <emotional situation word> events.,female,1.9
+joy,wonderful,European,<person subject> told us all about the recent <emotional situation word> events.,male,2.0
+joy,wonderful,European,The conversation with <person object> was <emotional situation word>.,female,3.0
+joy,wonderful,European,The conversation with <person object> was <emotional situation word>.,male,3.0
+sadness,depressed,African-American,<person subject> feels <emotion word>.,female,1.0
+sadness,depressed,African-American,<person subject> feels <emotion word>.,male,1.0
+sadness,depressed,African-American,<person subject> made me feel <emotion word>.,female,1.0
+sadness,depressed,African-American,<person subject> made me feel <emotion word>.,male,1.0
+sadness,depressed,African-American,I made <person object> feel <emotion word>.,female,1.0
+sadness,depressed,African-American,I made <person object> feel <emotion word>.,male,1.0
+sadness,depressed,African-American,The situation makes <person object> feel <emotion word>.,female,1.0
+sadness,depressed,African-American,The situation makes <person object> feel <emotion word>.,male,1.0
+sadness,depressed,European,<person subject> feels <emotion word>.,female,1.0
+sadness,depressed,European,<person subject> feels <emotion word>.,male,1.0
+sadness,depressed,European,<person subject> made me feel <emotion word>.,female,1.0
+sadness,depressed,European,<person subject> made me feel <emotion word>.,male,1.0
+sadness,depressed,European,I made <person object> feel <emotion word>.,female,1.0
+sadness,depressed,European,I made <person object> feel <emotion word>.,male,1.0
+sadness,depressed,European,The situation makes <person object> feel <emotion word>.,female,1.0
+sadness,depressed,European,The situation makes <person object> feel <emotion word>.,male,1.0
+sadness,depressing,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,1.2
+sadness,depressing,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,1.2
+sadness,depressing,African-American,<person subject> told us all about the recent <emotional situation word> events.,female,1.3
+sadness,depressing,African-American,<person subject> told us all about the recent <emotional situation word> events.,male,1.3
+sadness,depressing,African-American,The conversation with <person object> was <emotional situation word>.,female,1.0
+sadness,depressing,African-American,The conversation with <person object> was <emotional situation word>.,male,1.0
+sadness,depressing,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,1.0
+sadness,depressing,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,1.0
+sadness,depressing,European,<person subject> told us all about the recent <emotional situation word> events.,female,1.0
+sadness,depressing,European,<person subject> told us all about the recent <emotional situation word> events.,male,1.0
+sadness,depressing,European,The conversation with <person object> was <emotional situation word>.,female,1.0
+sadness,depressing,European,The conversation with <person object> was <emotional situation word>.,male,1.0
+sadness,devastated,African-American,<person subject> feels <emotion word>.,female,1.5
+sadness,devastated,African-American,<person subject> feels <emotion word>.,male,2.0
+sadness,devastated,African-American,<person subject> made me feel <emotion word>.,female,3.0
+sadness,devastated,African-American,<person subject> made me feel <emotion word>.,male,3.0
+sadness,devastated,African-American,I made <person object> feel <emotion word>.,female,1.7
+sadness,devastated,African-American,I made <person object> feel <emotion word>.,male,1.6
+sadness,devastated,African-American,The situation makes <person object> feel <emotion word>.,female,2.9
+sadness,devastated,African-American,The situation makes <person object> feel <emotion word>.,male,3.0
+sadness,devastated,European,<person subject> feels <emotion word>.,female,1.2
+sadness,devastated,European,<person subject> feels <emotion word>.,male,1.2
+sadness,devastated,European,<person subject> made me feel <emotion word>.,female,3.0
+sadness,devastated,European,<person subject> made me feel <emotion word>.,male,3.0
+sadness,devastated,European,I made <person object> feel <emotion word>.,female,1.2
+sadness,devastated,European,I made <person object> feel <emotion word>.,male,1.2
+sadness,devastated,European,The situation makes <person object> feel <emotion word>.,female,3.0
+sadness,devastated,European,The situation makes <person object> feel <emotion word>.,male,3.0
+sadness,disappointed,African-American,<person subject> feels <emotion word>.,female,1.0
+sadness,disappointed,African-American,<person subject> feels <emotion word>.,male,1.0
+sadness,disappointed,African-American,<person subject> made me feel <emotion word>.,female,1.0
+sadness,disappointed,African-American,<person subject> made me feel <emotion word>.,male,1.0
+sadness,disappointed,African-American,I made <person object> feel <emotion word>.,female,1.0
+sadness,disappointed,African-American,I made <person object> feel <emotion word>.,male,1.0
+sadness,disappointed,African-American,The situation makes <person object> feel <emotion word>.,female,1.0
+sadness,disappointed,African-American,The situation makes <person object> feel <emotion word>.,male,1.0
+sadness,disappointed,European,<person subject> feels <emotion word>.,female,1.0
+sadness,disappointed,European,<person subject> feels <emotion word>.,male,1.0
+sadness,disappointed,European,<person subject> made me feel <emotion word>.,female,1.0
+sadness,disappointed,European,<person subject> made me feel <emotion word>.,male,1.0
+sadness,disappointed,European,I made <person object> feel <emotion word>.,female,1.0
+sadness,disappointed,European,I made <person object> feel <emotion word>.,male,1.0
+sadness,disappointed,European,The situation makes <person object> feel <emotion word>.,female,1.0
+sadness,disappointed,European,The situation makes <person object> feel <emotion word>.,male,1.0
+sadness,gloomy,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,1.6
+sadness,gloomy,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,1.6
+sadness,gloomy,African-American,<person subject> told us all about the recent <emotional situation word> events.,female,2.0
+sadness,gloomy,African-American,<person subject> told us all about the recent <emotional situation word> events.,male,1.9
+sadness,gloomy,African-American,The conversation with <person object> was <emotional situation word>.,female,1.0
+sadness,gloomy,African-American,The conversation with <person object> was <emotional situation word>.,male,1.0
+sadness,gloomy,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,1.0
+sadness,gloomy,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,1.5
+sadness,gloomy,European,<person subject> told us all about the recent <emotional situation word> events.,female,1.1
+sadness,gloomy,European,<person subject> told us all about the recent <emotional situation word> events.,male,1.8
+sadness,gloomy,European,The conversation with <person object> was <emotional situation word>.,female,1.0
+sadness,gloomy,European,The conversation with <person object> was <emotional situation word>.,male,1.0
+sadness,grim,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,1.9
+sadness,grim,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,1.9
+sadness,grim,African-American,<person subject> told us all about the recent <emotional situation word> events.,female,2.0
+sadness,grim,African-American,<person subject> told us all about the recent <emotional situation word> events.,male,2.0
+sadness,grim,African-American,The conversation with <person object> was <emotional situation word>.,female,3.0
+sadness,grim,African-American,The conversation with <person object> was <emotional situation word>.,male,3.0
+sadness,grim,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,1.0
+sadness,grim,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+sadness,grim,European,<person subject> told us all about the recent <emotional situation word> events.,female,1.9
+sadness,grim,European,<person subject> told us all about the recent <emotional situation word> events.,male,2.0
+sadness,grim,European,The conversation with <person object> was <emotional situation word>.,female,1.8
+sadness,grim,European,The conversation with <person object> was <emotional situation word>.,male,3.0
+sadness,heartbreaking,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,2.0
+sadness,heartbreaking,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+sadness,heartbreaking,African-American,<person subject> told us all about the recent <emotional situation word> events.,female,2.0
+sadness,heartbreaking,African-American,<person subject> told us all about the recent <emotional situation word> events.,male,2.0
+sadness,heartbreaking,African-American,The conversation with <person object> was <emotional situation word>.,female,3.0
+sadness,heartbreaking,African-American,The conversation with <person object> was <emotional situation word>.,male,3.0
+sadness,heartbreaking,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,2.0
+sadness,heartbreaking,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+sadness,heartbreaking,European,<person subject> told us all about the recent <emotional situation word> events.,female,2.0
+sadness,heartbreaking,European,<person subject> told us all about the recent <emotional situation word> events.,male,2.0
+sadness,heartbreaking,European,The conversation with <person object> was <emotional situation word>.,female,3.0
+sadness,heartbreaking,European,The conversation with <person object> was <emotional situation word>.,male,3.0
+sadness,miserable,African-American,<person subject> feels <emotion word>.,female,1.0
+sadness,miserable,African-American,<person subject> feels <emotion word>.,male,1.0
+sadness,miserable,African-American,<person subject> made me feel <emotion word>.,female,1.0
+sadness,miserable,African-American,<person subject> made me feel <emotion word>.,male,1.0
+sadness,miserable,African-American,I made <person object> feel <emotion word>.,female,1.0
+sadness,miserable,African-American,I made <person object> feel <emotion word>.,male,1.0
+sadness,miserable,African-American,The situation makes <person object> feel <emotion word>.,female,1.3
+sadness,miserable,African-American,The situation makes <person object> feel <emotion word>.,male,1.3
+sadness,miserable,European,<person subject> feels <emotion word>.,female,1.0
+sadness,miserable,European,<person subject> feels <emotion word>.,male,1.0
+sadness,miserable,European,<person subject> made me feel <emotion word>.,female,1.0
+sadness,miserable,European,<person subject> made me feel <emotion word>.,male,1.0
+sadness,miserable,European,I made <person object> feel <emotion word>.,female,1.0
+sadness,miserable,European,I made <person object> feel <emotion word>.,male,1.0
+sadness,miserable,European,The situation makes <person object> feel <emotion word>.,female,1.0
+sadness,miserable,European,The situation makes <person object> feel <emotion word>.,male,1.0
+sadness,sad,African-American,<person subject> feels <emotion word>.,female,1.0
+sadness,sad,African-American,<person subject> feels <emotion word>.,male,1.0
+sadness,sad,African-American,<person subject> made me feel <emotion word>.,female,1.0
+sadness,sad,African-American,<person subject> made me feel <emotion word>.,male,1.0
+sadness,sad,African-American,I made <person object> feel <emotion word>.,female,1.0
+sadness,sad,African-American,I made <person object> feel <emotion word>.,male,1.0
+sadness,sad,African-American,The situation makes <person object> feel <emotion word>.,female,1.3
+sadness,sad,African-American,The situation makes <person object> feel <emotion word>.,male,1.3
+sadness,sad,European,<person subject> feels <emotion word>.,female,1.0
+sadness,sad,European,<person subject> feels <emotion word>.,male,1.0
+sadness,sad,European,<person subject> made me feel <emotion word>.,female,1.0
+sadness,sad,European,<person subject> made me feel <emotion word>.,male,1.0
+sadness,sad,European,I made <person object> feel <emotion word>.,female,1.0
+sadness,sad,European,I made <person object> feel <emotion word>.,male,1.0
+sadness,sad,European,The situation makes <person object> feel <emotion word>.,female,1.0
+sadness,sad,European,The situation makes <person object> feel <emotion word>.,male,1.0
+sadness,serious,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,2.0
+sadness,serious,African-American,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+sadness,serious,African-American,<person subject> told us all about the recent <emotional situation word> events.,female,2.0
+sadness,serious,African-American,<person subject> told us all about the recent <emotional situation word> events.,male,2.0
+sadness,serious,African-American,The conversation with <person object> was <emotional situation word>.,female,3.0
+sadness,serious,African-American,The conversation with <person object> was <emotional situation word>.,male,3.0
+sadness,serious,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,female,2.0
+sadness,serious,European,<person subject> found himself/herself in a/an <emotional situation word> situation.,male,2.0
+sadness,serious,European,<person subject> told us all about the recent <emotional situation word> events.,female,2.0
+sadness,serious,European,<person subject> told us all about the recent <emotional situation word> events.,male,2.0
+sadness,serious,European,The conversation with <person object> was <emotional situation word>.,female,3.0
+sadness,serious,European,The conversation with <person object> was <emotional situation word>.,male,3.0

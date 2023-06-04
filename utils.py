@@ -175,6 +175,48 @@ def complete_gpt3(prompt, l, model_name, temp=0, num_log_probs=None, echo=False,
             time.sleep(1)
     return response
 
+
+def get_data_by_emotion_word(sentences, templates, emotion_words, genders, races, emotion_word):
+    new_sentences = []
+    new_templates = []
+    new_genders = []
+    new_races = []
+    for idx, word in enumerate(emotion_words):
+        if word == emotion_word:
+            new_sentences.append(sentences[idx])
+            new_templates.append(templates[idx])
+            new_genders.append(genders[idx])
+            new_races.append(races[idx])
+    return new_sentences, new_templates, new_genders, new_races
+
+def get_data_by_gender(sentences, templates, genders, races, gender):
+    new_sentences = []
+    new_templates = []
+    new_races = []
+    for idx, word in enumerate(genders):
+        if word == gender:
+            new_sentences.append(sentences[idx])
+            new_templates.append(templates[idx])
+            new_races.append(races[idx])
+    return new_sentences, new_templates, new_races
+
+def get_data_by_race(sentences, templates, genders, races, race):
+    new_sentences = []
+    new_templates = []
+    new_genders = []
+    for idx, word in enumerate(races):
+        if word == race:
+            new_sentences.append(sentences[idx])
+            new_templates.append(templates[idx])
+            new_genders.append(genders[idx])
+    return new_sentences, new_templates, new_genders
+
+def get_avg_score(raw_resp_test_female_anger, params):
+    score = 0
+    for answer in raw_resp_test_female_anger:
+        score += params['inv_label_dict'][answer.text]
+    return score/len(raw_resp_test_female_anger)
+
 def complete(prompt, l, model, temp=0, num_log_probs=None, echo=False, n=None):
     """complete the prompt using a language model"""
     assert l >= 0
