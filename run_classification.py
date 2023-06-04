@@ -1,6 +1,7 @@
 import argparse
 from data_utils import load_dataset
 from utils import *
+import math
 
 def main(models, datasets, all_shots, num_seeds, subsample_test_set, api_num_log_prob, approx, use_saved_results, bs):
     """
@@ -85,10 +86,30 @@ def save_results(params_list, freeze_test_set=True):
         # print(male_anger_avg_score)
 
         predicted_intensities = []
+        predicted_prob_one = []
+        predicted_prob_two = []
+        predicted_prob_three = []
+        predicted_prob_four = []
+        predicted_prob_five = []
+        predicted_prob_one_exp = []
+        predicted_prob_two_exp = []
+        predicted_prob_three_exp = []
+        predicted_prob_four_exp = []
+        predicted_prob_five_exp = []
         for answer in raw_resp_test:
             predicted_intensities.append(params['inv_label_dict'][answer.text]+1)
+            predicted_prob_one.append(answer.top_logprobs[0][' 1'])
+            predicted_prob_two.append(answer.top_logprobs[0][' 2'])
+            predicted_prob_three.append(answer.top_logprobs[0][' 3'])
+            predicted_prob_four.append(answer.top_logprobs[0][' 4'])
+            predicted_prob_five.append(answer.top_logprobs[0][' 5'])
+            predicted_prob_one_exp.append(math.exp(answer.top_logprobs[0][' 1']))
+            predicted_prob_two_exp.append(math.exp(answer.top_logprobs[0][' 2']))
+            predicted_prob_three_exp.append(math.exp(answer.top_logprobs[0][' 3']))
+            predicted_prob_four_exp.append(math.exp(answer.top_logprobs[0][' 4']))
+            predicted_prob_five_exp.append(math.exp(answer.top_logprobs[0][' 5']))
 
-        output_csv(sentences, templates, emotions, genders, races, predicted_intensities, model=params['model'])
+        output_csv(sentences, templates, emotions, genders, races, predicted_intensities, predicted_prob_one, predicted_prob_two, predicted_prob_three, predicted_prob_four, predicted_prob_five, predicted_prob_one_exp, predicted_prob_two_exp, predicted_prob_three_exp, predicted_prob_four_exp, predicted_prob_five_exp, model=params['model'])
 
         # get prob for each label
         # all_label_probs = get_label_probs(params, raw_resp_test, train_sentences=['The conversation with Latisha was displeasing.'], train_labels=[2], test_sentences=anger_sentences[:4])
