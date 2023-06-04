@@ -96,6 +96,7 @@ def save_results(params_list, freeze_test_set=True):
         predicted_prob_three_exp = []
         predicted_prob_four_exp = []
         predicted_prob_five_exp = []
+        predicted_top_log_probs = []
         for answer in raw_resp_test:
             predicted_intensities.append(params['inv_label_dict'][answer.text]+1)
             prob_one = 0
@@ -123,8 +124,9 @@ def save_results(params_list, freeze_test_set=True):
             predicted_prob_three_exp.append(math.exp(prob_three))
             predicted_prob_four_exp.append(math.exp(prob_four))
             predicted_prob_five_exp.append(math.exp(prob_five))
+            predicted_top_log_probs.append(answer.top_logprobs[0])
 
-        output_csv(sentences, templates, emotions, genders, races, predicted_intensities, predicted_prob_one, predicted_prob_two, predicted_prob_three, predicted_prob_four, predicted_prob_five, predicted_prob_one_exp, predicted_prob_two_exp, predicted_prob_three_exp, predicted_prob_four_exp, predicted_prob_five_exp, model=params['model'])
+        output_csv(sentences, templates, emotions, genders, races, predicted_intensities, predicted_prob_one, predicted_prob_two, predicted_prob_three, predicted_prob_four, predicted_prob_five, predicted_prob_one_exp, predicted_prob_two_exp, predicted_prob_three_exp, predicted_prob_four_exp, predicted_prob_five_exp, predicted_top_log_probs, model=params['model'])
 
         # get prob for each label
         # all_label_probs = get_label_probs(params, raw_resp_test, train_sentences=['The conversation with Latisha was displeasing.'], train_labels=[2], test_sentences=anger_sentences[:4])
