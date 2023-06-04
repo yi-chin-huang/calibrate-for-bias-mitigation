@@ -75,7 +75,7 @@ def save_results(params_list, freeze_test_set=True):
         ### Evaluate the performance and save all results
         # obtaining model's response on test examples
         # print(f"getting raw resp for {len(test_sentences)} test sentences")
-        raw_resp_test = get_model_response(params, train_sentences=['The conversation with Latisha was displeasing.'], train_labels=[2], test_sentences=sentences, test_emotions=emotions)
+        raw_resp_test = get_model_response(params, train_sentences={'anger': ['The conversation with this person was irksome.','This person feels infuriated.'], 'joy': ['The conversation with this person was alarming.','This person feels disdressed.'], 'fear': ['The conversation with this person was pleasing.','This person feels euphoric.'], 'sadness': ['The conversation with this person was pensive.','This person feels broken-hearted.']}, train_labels={'anger': [1, 3], 'joy': [1, 3], 'fear': [1, 3], 'sadness': [1, 3]}, test_sentences=sentences, test_emotions=emotions)
         # raw_resp_test_male_anger = get_model_response(params, train_sentences=['The conversation with Latisha was displeasing.'], train_labels=[2], test_sentences=anger_male_sentences)
 
         # female_anger_avg_score = get_avg_score(raw_resp_test_female_anger, params)
@@ -86,7 +86,7 @@ def save_results(params_list, freeze_test_set=True):
 
         predicted_intensities = []
         for answer in raw_resp_test:
-            predicted_intensities.append(params['inv_label_dict'][answer.text])
+            predicted_intensities.append(params['inv_label_dict'][answer.text]+1)
 
         output_csv(sentences, templates, emotions, genders, races, predicted_intensities, model=params['model'])
 
