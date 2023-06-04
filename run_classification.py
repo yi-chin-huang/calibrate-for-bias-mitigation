@@ -98,16 +98,31 @@ def save_results(params_list, freeze_test_set=True):
         predicted_prob_five_exp = []
         for answer in raw_resp_test:
             predicted_intensities.append(params['inv_label_dict'][answer.text]+1)
-            predicted_prob_one.append(answer.top_logprobs[0][' 1'])
-            predicted_prob_two.append(answer.top_logprobs[0][' 2'])
-            predicted_prob_three.append(answer.top_logprobs[0][' 3'])
-            predicted_prob_four.append(answer.top_logprobs[0][' 4'])
-            predicted_prob_five.append(answer.top_logprobs[0][' 5'])
-            predicted_prob_one_exp.append(math.exp(answer.top_logprobs[0][' 1']))
-            predicted_prob_two_exp.append(math.exp(answer.top_logprobs[0][' 2']))
-            predicted_prob_three_exp.append(math.exp(answer.top_logprobs[0][' 3']))
-            predicted_prob_four_exp.append(math.exp(answer.top_logprobs[0][' 4']))
-            predicted_prob_five_exp.append(math.exp(answer.top_logprobs[0][' 5']))
+            prob_one = 0
+            prob_two = 0
+            prob_three = 0
+            prob_four = 0
+            prob_five = 0
+            if answer.top_logprobs[0].has_key(' 1'):
+                prob_one = answer.top_logprobs[0][' 1']
+            if answer.top_logprobs[0].has_key(' 2'):
+                prob_two = answer.top_logprobs[0][' 2']
+            if answer.top_logprobs[0].has_key(' 3'):
+                prob_three = answer.top_logprobs[0][' 3']
+            if answer.top_logprobs[0].has_key(' 4'):
+                prob_four = answer.top_logprobs[0][' 4']
+            if answer.top_logprobs[0].has_key(' 5'):
+                prob_five = answer.top_logprobs[0][' 5']
+            predicted_prob_one.append(prob_one)
+            predicted_prob_two.append(prob_two)
+            predicted_prob_three.append(prob_three)
+            predicted_prob_four.append(prob_four)
+            predicted_prob_five.append(prob_five)
+            predicted_prob_one_exp.append(math.exp(prob_one))
+            predicted_prob_two_exp.append(math.exp(prob_two))
+            predicted_prob_three_exp.append(math.exp(prob_three))
+            predicted_prob_four_exp.append(math.exp(prob_four))
+            predicted_prob_five_exp.append(math.exp(prob_five))
 
         output_csv(sentences, templates, emotions, genders, races, predicted_intensities, predicted_prob_one, predicted_prob_two, predicted_prob_three, predicted_prob_four, predicted_prob_five, predicted_prob_one_exp, predicted_prob_two_exp, predicted_prob_three_exp, predicted_prob_four_exp, predicted_prob_five_exp, model=params['model'])
 
