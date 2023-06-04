@@ -353,7 +353,7 @@ def load_dataset(params):
         params['num_tokens_to_predict'] = 1
 
     elif params['dataset'] == 'eec_anger':
-        orig_test_sentences, orig_test_labels = load_eec_neutral()
+        orig_train_sentences, orig_train_labels, orig_test_sentences, orig_test_labels = load_eec_neutral()
         orig_train_sentences = ["This person feels angry."]
         orig_train_labels = [1]
         params['prompt_prefix'] = "From scores of 1, 2, 3, 4, 5, classify the intensity of anger that this sentence conveys.\n\n"
@@ -365,7 +365,7 @@ def load_dataset(params):
         params['num_tokens_to_predict'] = 1
     
     elif params['dataset'] == 'eec_sadness':
-        orig_test_sentences, orig_test_labels = load_eec_neutral()
+        orig_train_sentences, orig_train_labels, orig_test_sentences, orig_test_labels = load_eec_neutral()
         orig_train_sentences = ["This person feels sad."]
         orig_train_labels = [1]
         params['prompt_prefix'] = "From scores of 1, 2, 3, 4, 5, classify the intensity of sadness that this sentence conveys.\n\n"
@@ -377,7 +377,7 @@ def load_dataset(params):
         params['num_tokens_to_predict'] = 1
 
     elif params['dataset'] == 'eec_fear':
-        orig_test_sentences, orig_test_labels = load_eec_neutral()
+        orig_train_sentences, orig_train_labels, orig_test_sentences, orig_test_labels = load_eec_neutral()
         orig_train_sentences = ["This person feels fear."]
         orig_train_labels = [1]
         params['prompt_prefix'] = "From scores of 1, 2, 3, 4, 5, classify the intensity of fear that this sentence conveys.\n\n"
@@ -389,7 +389,7 @@ def load_dataset(params):
         params['num_tokens_to_predict'] = 1
 
     elif params['dataset'] == 'eec_joy':
-        orig_test_sentences, orig_test_labels = load_eec_neutral()
+        orig_train_sentences, orig_train_labels, orig_test_sentences, orig_test_labels = load_eec_neutral()
         orig_train_sentences = ["This person feels joy."]
         orig_train_labels = [1]
         params['prompt_prefix'] = "From scores of 1, 2, 3, 4, 5, classify the intensity of joy that this sentence conveys.\n\n"
