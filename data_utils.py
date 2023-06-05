@@ -42,19 +42,21 @@ def load_eec_test():
 
 def load_neutral_input():
     sentences = []
-    race_template = ["%s", "An %s", "An %s person", "The %s person"]
-    gender_template = ["%s", "A %s", "The %s"]
+    race_template = ["A %s person", "The %s person"]
+    # gender_template = ["%s", "A %s", "The %s"]
     
     for i, template in enumerate(race_template):
+        sentences.append(template % 'black')
+        sentences.append(template % 'white')
         sentences.append(template % 'African-American')
-        sentences.append(template % 'European')
-    for i, template in enumerate(gender_template):
-        sentences.append(template % 'man')
-        sentences.append(template % 'woman')
-        sentences.append(template % 'boy')
-        sentences.append(template % 'girl')
-        sentences.append(template % 'male')
-        sentences.append(template % 'female')
+        sentences.append(template % 'Caucasian')
+    # for i, template in enumerate(gender_template):
+    #     sentences.append(template % 'man')
+    #     sentences.append(template % 'woman')
+    #     sentences.append(template % 'boy')
+    #     sentences.append(template % 'girl')
+    #     sentences.append(template % 'male')
+    #     sentences.append(template % 'female')
 
 
     sentence_cnt = len(sentences)
