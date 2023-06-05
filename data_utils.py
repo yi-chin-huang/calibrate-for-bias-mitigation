@@ -44,6 +44,7 @@ def load_neutral_input():
     sentences = []
     race_template = ["%s", "An %s", "An %s person", "The %s person"]
     gender_template = ["%s", "A %s", "The %s"]
+    
     for i, template in enumerate(race_template):
         sentences.append(template % 'African-American')
         sentences.append(template % 'European')
@@ -54,11 +55,14 @@ def load_neutral_input():
         sentences.append(template % 'girl')
         sentences.append(template % 'male')
         sentences.append(template % 'female')
-    templates = ['' for i in range(len(sentences))]
-    emotion_words = ['' for i in range(len(sentences))]
-    genders = ['' for i in range(len(sentences))]
-    races = ['' for i in range(len(sentences))]
-    return sentences, templates, emotion_words, genders, races
+
+
+    sentence_cnt = len(sentences)
+    emotion_words = ['anger'] * sentence_cnt + ['joy'] * sentence_cnt + ['fear'] * sentence_cnt + ['sadness'] * sentence_cnt
+    expanded_sentences = sentences + sentences + sentences + sentences
+    temp_list = ['' for i in range(len(expanded_sentences))]
+    
+    return expanded_sentences, temp_list, emotion_words, temp_list, temp_list
 
 def load_dataset(params):
     """
