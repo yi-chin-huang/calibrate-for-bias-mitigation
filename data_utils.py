@@ -40,6 +40,26 @@ def load_eec_test():
     # orig_test_labels = [3, 0, 4]
     # return sentences, persons, genders, races
 
+def load_neutral_input():
+    sentences = []
+    race_template = ["%s", "An %s", "An %s person", "The %s person"]
+    gender_template = ["%s", "A %s", "The %s"]
+    for i, template in enumerate(race_template):
+        sentences.append(template % 'African-American')
+        sentences.append(template % 'European')
+    for i, template in enumerate(gender_template):
+        sentences.append(template % 'man')
+        sentences.append(template % 'woman')
+        sentences.append(template % 'boy')
+        sentences.append(template % 'girl')
+        sentences.append(template % 'male')
+        sentences.append(template % 'female')
+    templates = ['' for i in range(len(sentences))]
+    emotion_words = ['' for i in range(len(sentences))]
+    genders = ['' for i in range(len(sentences))]
+    races = ['' for i in range(len(sentences))]
+    return sentences, templates, emotion_words, genders, races
+
 def load_dataset(params):
     """
     Load train and test data
@@ -48,7 +68,7 @@ def load_dataset(params):
     """
 
     if params['dataset'] == 'eec':
-        sentences, templates, emotion_words, genders, races = load_eec_test()
+        sentences, templates, emotion_words, genders, races = load_neutral_input()
         params['prompt_prefix'] = "From scores of one, two, three, four, five, classify the intensity of %s that this sentence conveys.\n\n"
         params["q_prefix"] = "Sentence: "
         params["a_prefix"] = "Emotional Intensity: "
