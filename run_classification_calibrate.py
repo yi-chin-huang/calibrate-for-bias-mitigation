@@ -79,6 +79,7 @@ def save_results(params_list, calibrate = False, freeze_test_set=True):
         # print(f"getting raw resp for {len(test_sentences)} test sentences")
         # comment out this line!
         raw_resp_test = get_model_response(params, train_sentences=['The conversation with Latisha was displeasing.'], train_labels=[2], test_sentences=sentences, test_emotions=emotions)
+        print('raw_resp_test', raw_resp_test)
         # raw_resp_test_male_anger = get_model_response(params, train_sentences=['The conversation with Latisha was displeasing.'], train_labels=[2], test_sentences=anger_male_sentences)
 
         # female_anger_avg_score = get_avg_score(raw_resp_test_female_anger, params)
