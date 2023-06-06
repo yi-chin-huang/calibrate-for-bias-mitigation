@@ -72,21 +72,21 @@ df = df.drop(columns='predicted_prob_one_factor')
 # merge in calibration parameters
 df = df.merge(gender_table, how = 'left', on = ['gender', 'emotion'])
 df = df.merge(race_table, how = 'left', on = ['race', 'emotion'])
-df.loc[df['race_calibrate_1_normalized'].isnull(), 'race_calibrate_1_normalized'] = 1
-df.loc[df['race_calibrate_2_normalized'].isnull(), 'race_calibrate_2_normalized'] = 1
-df.loc[df['race_calibrate_3_normalized'].isnull(), 'race_calibrate_3_normalized'] = 1
-df.loc[df['race_calibrate_4_normalized'].isnull(), 'race_calibrate_4_normalized'] = 1
-df.loc[df['race_calibrate_5_normalized'].isnull(), 'race_calibrate_5_normalized'] = 1
-df['1'] = df['predicted_prob_one_exp'] * df['gender_calibrate_1_normalized'] * df['race_calibrate_1_normalized']
-df['2'] = df['predicted_prob_two_exp'] * df['gender_calibrate_2_normalized'] * df['race_calibrate_2_normalized']
-df['3'] = df['predicted_prob_three_exp'] * df['gender_calibrate_3_normalized'] * df['race_calibrate_3_normalized']
-df['4'] = df['predicted_prob_four_exp'] * df['gender_calibrate_4_normalized'] * df['race_calibrate_4_normalized']
-df['5'] = df['predicted_prob_five_exp'] * df['gender_calibrate_5_normalized'] * df['race_calibrate_5_normalized']
+df['1'] = df['predicted_prob_one_exp'] * (df['gender_calibrate_1_normalized'] + df['race_calibrate_1_normalized']) / 2
+df['2'] = df['predicted_prob_two_exp'] * (df['gender_calibrate_2_normalized'] + df['race_calibrate_2_normalized']) / 2
+df['3'] = df['predicted_prob_three_exp'] * (df['gender_calibrate_3_normalized'] + df['race_calibrate_3_normalized']) / 2
+df['4'] = df['predicted_prob_four_exp'] * (df['gender_calibrate_4_normalized'] + df['race_calibrate_4_normalized']) / 2
+df['5'] = df['predicted_prob_five_exp'] * (df['gender_calibrate_5_normalized'] + df['race_calibrate_5_normalized']) / 2
+df.loc[df['race_calibrate_1_normalized'].isnull(), '1'] = df['predicted_prob_one_exp'] * df['gender_calibrate_1_normalized']
+df.loc[df['race_calibrate_2_normalized'].isnull(), '2'] = df['predicted_prob_two_exp'] * df['gender_calibrate_2_normalized']
+df.loc[df['race_calibrate_3_normalized'].isnull(), '3'] = df['predicted_prob_three_exp'] * df['gender_calibrate_3_normalized']
+df.loc[df['race_calibrate_4_normalized'].isnull(), '4'] = df['predicted_prob_four_exp'] * df['gender_calibrate_4_normalized']
+df.loc[df['race_calibrate_5_normalized'].isnull(), '5'] = df['predicted_prob_five_exp'] * df['gender_calibrate_5_normalized']
 
 # find calibrated output
 df['calibrated_intensity'] = df.iloc[:,-5:].idxmax(axis=1)
 df['calibrated_intensity'] = df['calibrated_intensity'].astype(int)
-df.to_csv("calibrate/calibrated_results.csv")
+df.to_csv("calibrate/calibrated_mean_results.csv")
 
 # test = df.groupby(['predicted_intensity', 'calibrated_intensity']).count()
 # test.to_csv("calibrate/test6.csv")
