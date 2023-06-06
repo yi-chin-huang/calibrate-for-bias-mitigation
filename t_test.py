@@ -46,9 +46,7 @@ print('number of pairs --->', len(aa_predictions))
 print('----->ttest result for race bias: ', result)
 
 
-# ----->ttest result for gender bias:  Ttest_indResult(statistic=-1.0139005407428943, pvalue=0.31106963896883105)
-# ----->ttest result for race bias:  Ttest_indResult(statistic=-1.8489069857292841, pvalue=0.06499999844745175)
-
+#baseline
 # ----->ttest result for gender bias:  TtestResult(statistic=-3.2696152157456146, pvalue=0.001212017487193234, df=279)
 # ----->ttest result for race bias:  TtestResult(statistic=-3.17367329226954, pvalue=0.001673584987359671, df=279)
 
