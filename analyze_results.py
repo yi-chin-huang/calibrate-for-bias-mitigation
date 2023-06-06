@@ -1,41 +1,41 @@
 import pandas as pd
 import statistics
 
-# babbage:calibrated_b_mean
-df = pd.read_csv('calibrate/calibrated_mean_results.csv')
+# # babbage:calibrated_b_mean
+# df = pd.read_csv('calibrate/calibrated_mean_results.csv')
 
-emotion_word_avg = df.groupby(['emotion', 'emotion_word']).agg(
-    avg_intensity=pd.NamedAgg(column='calibrated_intensity', aggfunc=statistics.mean)
-)
-emotion_word_avg.to_csv('analysis/calibrated_b_mean/emotion_word_avg_table.csv')
+# emotion_word_avg = df.groupby(['emotion', 'emotion_word']).agg(
+#     avg_intensity=pd.NamedAgg(column='calibrated_intensity', aggfunc=statistics.mean)
+# )
+# emotion_word_avg.to_csv('analysis/calibrated_b_mean/emotion_word_avg_table.csv')
 
-emotion_word_avg_by_gender = df.groupby(['emotion', 'gender']).agg(
-    avg_intensity=pd.NamedAgg(column='calibrated_intensity', aggfunc=statistics.mean)
-)
-emotion_word_avg_by_gender.to_csv('analysis/calibrated_b_mean/emotion_word_avg_gender_table.csv')
+# emotion_word_avg_by_gender = df.groupby(['emotion', 'gender']).agg(
+#     avg_intensity=pd.NamedAgg(column='calibrated_intensity', aggfunc=statistics.mean)
+# )
+# emotion_word_avg_by_gender.to_csv('analysis/calibrated_b_mean/emotion_word_avg_gender_table.csv')
 
-emotion_word_avg_by_race = df.groupby(['emotion', 'race']).agg(
-    avg_intensity=pd.NamedAgg(column='calibrated_intensity', aggfunc=statistics.mean)
-)
-emotion_word_avg_by_race.to_csv('analysis/calibrated_b_mean/emotion_word_avg_race_table.csv')
+# emotion_word_avg_by_race = df.groupby(['emotion', 'race']).agg(
+#     avg_intensity=pd.NamedAgg(column='calibrated_intensity', aggfunc=statistics.mean)
+# )
+# emotion_word_avg_by_race.to_csv('analysis/calibrated_b_mean/emotion_word_avg_race_table.csv')
 
-# babbage:calibrated_b
-df = pd.read_csv('calibrate/calibrated_results.csv')
+# # babbage:calibrated_b
+# df = pd.read_csv('calibrate/calibrated_results.csv')
 
-emotion_word_avg = df.groupby(['emotion', 'emotion_word']).agg(
-    avg_intensity=pd.NamedAgg(column='calibrated_intensity', aggfunc=statistics.mean)
-)
-emotion_word_avg.to_csv('analysis/calibrated_b/emotion_word_avg_table.csv')
+# emotion_word_avg = df.groupby(['emotion', 'emotion_word']).agg(
+#     avg_intensity=pd.NamedAgg(column='calibrated_intensity', aggfunc=statistics.mean)
+# )
+# emotion_word_avg.to_csv('analysis/calibrated_b/emotion_word_avg_table.csv')
 
-emotion_word_avg_by_gender = df.groupby(['emotion', 'gender']).agg(
-    avg_intensity=pd.NamedAgg(column='calibrated_intensity', aggfunc=statistics.mean)
-)
-emotion_word_avg_by_gender.to_csv('analysis/calibrated_b/emotion_word_avg_gender_table.csv')
+# emotion_word_avg_by_gender = df.groupby(['emotion', 'gender']).agg(
+#     avg_intensity=pd.NamedAgg(column='calibrated_intensity', aggfunc=statistics.mean)
+# )
+# emotion_word_avg_by_gender.to_csv('analysis/calibrated_b/emotion_word_avg_gender_table.csv')
 
-emotion_word_avg_by_race = df.groupby(['emotion', 'race']).agg(
-    avg_intensity=pd.NamedAgg(column='calibrated_intensity', aggfunc=statistics.mean)
-)
-emotion_word_avg_by_race.to_csv('analysis/calibrated_b/emotion_word_avg_race_table.csv')
+# emotion_word_avg_by_race = df.groupby(['emotion', 'race']).agg(
+#     avg_intensity=pd.NamedAgg(column='calibrated_intensity', aggfunc=statistics.mean)
+# )
+# emotion_word_avg_by_race.to_csv('analysis/calibrated_b/emotion_word_avg_race_table.csv')
 
 # # babbage:calibrated_mean
 # df = pd.read_csv('calibrate/calibrated_mean_results.csv')
