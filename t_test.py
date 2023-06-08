@@ -58,7 +58,6 @@ print('----->ttest result for race bias: ', result)
 # ----->ttest result for gender bias:  TtestResult(statistic=3.277098487808554, pvalue=0.0011815152946658724, df=279)
 # ----->ttest result for race bias:  TtestResult(statistic=5.911042467664342, pvalue=9.897652700110067e-09, df=279)
 
-
 # b
 # ----->ttest result for gender bias:  TtestResult(statistic=8.793491091505208, pvalue=1.5284371182453648e-16, df=279)
 # ----->ttest result for race bias:  TtestResult(statistic=10.396693678785171, pvalue=1.2992210937870004e-21, df=279)
